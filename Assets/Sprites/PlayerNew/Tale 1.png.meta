@@ -1,0 +1,300 @@
+fileFormatVersion: 2
+guid: 8ecf71272b2ee104f852d2ad578c24d7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7514348201168873597
+    second: Tale_0
+  - first:
+      213: -5146965176824319214
+    second: Tale_1
+  - first:
+      213: 4089801048275886118
+    second: Tale_2
+  - first:
+      213: -2335978885755937214
+    second: Tale_3
+  - first:
+      213: -1709676434687981562
+    second: Tale_4
+  - first:
+      213: 1547528686690225603
+    second: Tale_5
+  - first:
+      213: -8807268761340027493
+    second: Tale_6
+  - first:
+      213: -3134662193381405645
+    second: Tale_7
+  - first:
+      213: 997684933545216517
+    second: Tale_8
+  - first:
+      213: -602632864403610406
+    second: Tale_9
+  - first:
+      213: -2663302392808986096
+    second: Tale_10
+  - first:
+      213: 401813309001201469
+    second: Tale_11
+  - first:
+      213: -6531590914639436234
+    second: Tale_12
+  - first:
+      213: -3599673187513467406
+    second: Tale_13
+  - first:
+      213: -3079897289462341844
+    second: Tale_14
+  - first:
+      213: 2190912244672735934
+    second: Tale_15
+  - first:
+      213: 2947348824929882751
+    second: Tale_16
+  - first:
+      213: -5587302284732617469
+    second: Tale_17
+  - first:
+      213: -251323447863000653
+    second: Tale_18
+  - first:
+      213: 2547436460341322588
+    second: Tale_19
+  - first:
+      213: 1167635085362162389
+    second: Tale_20
+  - first:
+      213: 2436038866726330609
+    second: Tale_21
+  - first:
+      213: 5502697195580542259
+    second: Tale_22
+  - first:
+      213: -2856207012473430765
+    second: Tale_23
+  - first:
+      213: 5324075095607031988
+    second: Tale_24
+  - first:
+      213: -3850646540754702355
+    second: Tale_25
+  - first:
+      213: 7851941480384021058
+    second: Tale_26
+  - first:
+      213: -1835058311053079361
+    second: Tale_27
+  - first:
+      213: -2297107900676600097
+    second: Tale_28
+  - first:
+      213: -8106147860881966932
+    second: Tale_29
+  - first:
+      213: -4988188411003551801
+    second: Tale_30
+  - first:
+      213: 5225362598514375384
+    second: Tale_31
+  - first:
+      213: 3099495457596545146
+    second: Tale_32
+  - first:
+      213: 9218180226928438914
+    second: Tale_33
+  - first:
+      213: 6223844637154356392
+    second: Tale_34
+  - first:
+      213: 8801103583133186566
+    second: Tale_35
+  - first:
+      213: 1423847148088217151
+    second: Tale_36
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tale_36
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 571
+        width: 583
+        height: 370
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3e4044ff6582c310800000000000000
+      internalID: 1423847148088217151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Tale_0: 7514348201168873597
+      Tale_1: -5146965176824319214
+      Tale_10: -2663302392808986096
+      Tale_11: 401813309001201469
+      Tale_12: -6531590914639436234
+      Tale_13: -3599673187513467406
+      Tale_14: -3079897289462341844
+      Tale_15: 2190912244672735934
+      Tale_16: 2947348824929882751
+      Tale_17: -5587302284732617469
+      Tale_18: -251323447863000653
+      Tale_19: 2547436460341322588
+      Tale_2: 4089801048275886118
+      Tale_20: 1167635085362162389
+      Tale_21: 2436038866726330609
+      Tale_22: 5502697195580542259
+      Tale_23: -2856207012473430765
+      Tale_24: 5324075095607031988
+      Tale_25: -3850646540754702355
+      Tale_26: 7851941480384021058
+      Tale_27: -1835058311053079361
+      Tale_28: -2297107900676600097
+      Tale_29: -8106147860881966932
+      Tale_3: -2335978885755937214
+      Tale_30: -4988188411003551801
+      Tale_31: 5225362598514375384
+      Tale_32: 3099495457596545146
+      Tale_33: 9218180226928438914
+      Tale_34: 6223844637154356392
+      Tale_35: 8801103583133186566
+      Tale_36: 1423847148088217151
+      Tale_4: -1709676434687981562
+      Tale_5: 1547528686690225603
+      Tale_6: -8807268761340027493
+      Tale_7: -3134662193381405645
+      Tale_8: 997684933545216517
+      Tale_9: -602632864403610406
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

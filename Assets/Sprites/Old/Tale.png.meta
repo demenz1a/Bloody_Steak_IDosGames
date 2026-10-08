@@ -1,0 +1,1092 @@
+fileFormatVersion: 2
+guid: 75f5f7f4da1159e4dae947ecda855865
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7514348201168873597
+    second: Tale_0
+  - first:
+      213: -5146965176824319214
+    second: Tale_1
+  - first:
+      213: 4089801048275886118
+    second: Tale_2
+  - first:
+      213: -2335978885755937214
+    second: Tale_3
+  - first:
+      213: -1709676434687981562
+    second: Tale_4
+  - first:
+      213: 1547528686690225603
+    second: Tale_5
+  - first:
+      213: -8807268761340027493
+    second: Tale_6
+  - first:
+      213: -3134662193381405645
+    second: Tale_7
+  - first:
+      213: 997684933545216517
+    second: Tale_8
+  - first:
+      213: -602632864403610406
+    second: Tale_9
+  - first:
+      213: -2663302392808986096
+    second: Tale_10
+  - first:
+      213: 401813309001201469
+    second: Tale_11
+  - first:
+      213: -6531590914639436234
+    second: Tale_12
+  - first:
+      213: -3599673187513467406
+    second: Tale_13
+  - first:
+      213: -3079897289462341844
+    second: Tale_14
+  - first:
+      213: 2190912244672735934
+    second: Tale_15
+  - first:
+      213: 2947348824929882751
+    second: Tale_16
+  - first:
+      213: -5587302284732617469
+    second: Tale_17
+  - first:
+      213: -251323447863000653
+    second: Tale_18
+  - first:
+      213: 2547436460341322588
+    second: Tale_19
+  - first:
+      213: 1167635085362162389
+    second: Tale_20
+  - first:
+      213: 2436038866726330609
+    second: Tale_21
+  - first:
+      213: 5502697195580542259
+    second: Tale_22
+  - first:
+      213: -2856207012473430765
+    second: Tale_23
+  - first:
+      213: 5324075095607031988
+    second: Tale_24
+  - first:
+      213: -3850646540754702355
+    second: Tale_25
+  - first:
+      213: 7851941480384021058
+    second: Tale_26
+  - first:
+      213: -1835058311053079361
+    second: Tale_27
+  - first:
+      213: -2297107900676600097
+    second: Tale_28
+  - first:
+      213: -8106147860881966932
+    second: Tale_29
+  - first:
+      213: -4988188411003551801
+    second: Tale_30
+  - first:
+      213: 5225362598514375384
+    second: Tale_31
+  - first:
+      213: 3099495457596545146
+    second: Tale_32
+  - first:
+      213: 9218180226928438914
+    second: Tale_33
+  - first:
+      213: 6223844637154356392
+    second: Tale_34
+  - first:
+      213: 8801103583133186566
+    second: Tale_35
+  - first:
+      213: 1423847148088217151
+    second: Tale_36
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tale_0
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 2350
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d78244150e3584860800000000000000
+      internalID: 7514348201168873597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_1
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 2247
+        width: 30
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 213b414017e4298b0800000000000000
+      internalID: -5146965176824319214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_2
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 2324
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 620218c7264e1c830800000000000000
+      internalID: 4089801048275886118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_3
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 2334
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24e54b7749fe49fd0800000000000000
+      internalID: -2335978885755937214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_4
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 2314
+        width: 24
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 608019547520648e0800000000000000
+      internalID: -1709676434687981562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_5
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 2184
+        width: 15
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cdc5e1342de97510800000000000000
+      internalID: 1547528686690225603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_6
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 2118
+        width: 13
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9ddee679bb46c580800000000000000
+      internalID: -8807268761340027493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_7
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 2001
+        width: 21
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33c87a0e7517f74d0800000000000000
+      internalID: -3134662193381405645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_8
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 2094
+        width: 10
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50ac8bd392d78dd00800000000000000
+      internalID: 997684933545216517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_9
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 1993
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad42f3b4a9403a7f0800000000000000
+      internalID: -602632864403610406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_10
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 1976
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01a2c23a59c0a0bd0800000000000000
+      internalID: -2663302392808986096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_11
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 1951
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d377a0d5317839500800000000000000
+      internalID: 401813309001201469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_12
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 1957
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6366fb24ba02b55a0800000000000000
+      internalID: -6531590914639436234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_13
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 1941
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fdf2cece446b0ec0800000000000000
+      internalID: -3599673187513467406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_14
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 1933
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2f98e4bbb10245d0800000000000000
+      internalID: -3079897289462341844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_15
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 1905
+        width: 50
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebaa5cd141fa76e10800000000000000
+      internalID: 2190912244672735934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_16
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 1883
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f725c1bf32617e820800000000000000
+      internalID: 2947348824929882751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_17
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 1871
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30da8c1cc2ae572b0800000000000000
+      internalID: -5587302284732617469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_18
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 1880
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b1466ed7ae138cf0800000000000000
+      internalID: -251323447863000653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_19
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 1580
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c53e58ab6ff4a5320800000000000000
+      internalID: 2547436460341322588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_20
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1622
+        width: 30
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5da6b4a7ce5443010800000000000000
+      internalID: 1167635085362162389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_21
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 1570
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f0a44e417c8ec120800000000000000
+      internalID: 2436038866726330609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_22
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 1552
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33dcd11e1f18d5c40800000000000000
+      internalID: 5502697195580542259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_23
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 1541
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31d9a80ead6bc58d0800000000000000
+      internalID: -2856207012473430765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_24
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 1533
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b8392f571ae2e940800000000000000
+      internalID: 5324075095607031988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_25
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1517
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: defaabe6f51cf8ac0800000000000000
+      internalID: -3850646540754702355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_26
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 1506
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 242c17fcc23b7fc60800000000000000
+      internalID: 7851941480384021058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_27
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 1496
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbc8d8b40309886e0800000000000000
+      internalID: -1835058311053079361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_28
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1481
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fde8d61f8880f10e0800000000000000
+      internalID: -2297107900676600097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_29
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 1472
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca8765ff77d218f80800000000000000
+      internalID: -8106147860881966932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_30
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1462
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cfb969911566cab0800000000000000
+      internalID: -4988188411003551801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_31
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 1015
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dabf032997348840800000000000000
+      internalID: 5225362598514375384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_32
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 966
+        width: 12
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a789af462be930b20800000000000000
+      internalID: 3099495457596545146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_33
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 1002
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28e699d831e8def70800000000000000
+      internalID: 9218180226928438914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_34
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 913
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ac2eced8b98f5650800000000000000
+      internalID: 6223844637154356392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_35
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 926
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60a3210241dc32a70800000000000000
+      internalID: 8801103583133186566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tale_36
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 571
+        width: 583
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3e4044ff6582c310800000000000000
+      internalID: 1423847148088217151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Tale_0: 7514348201168873597
+      Tale_1: -5146965176824319214
+      Tale_10: -2663302392808986096
+      Tale_11: 401813309001201469
+      Tale_12: -6531590914639436234
+      Tale_13: -3599673187513467406
+      Tale_14: -3079897289462341844
+      Tale_15: 2190912244672735934
+      Tale_16: 2947348824929882751
+      Tale_17: -5587302284732617469
+      Tale_18: -251323447863000653
+      Tale_19: 2547436460341322588
+      Tale_2: 4089801048275886118
+      Tale_20: 1167635085362162389
+      Tale_21: 2436038866726330609
+      Tale_22: 5502697195580542259
+      Tale_23: -2856207012473430765
+      Tale_24: 5324075095607031988
+      Tale_25: -3850646540754702355
+      Tale_26: 7851941480384021058
+      Tale_27: -1835058311053079361
+      Tale_28: -2297107900676600097
+      Tale_29: -8106147860881966932
+      Tale_3: -2335978885755937214
+      Tale_30: -4988188411003551801
+      Tale_31: 5225362598514375384
+      Tale_32: 3099495457596545146
+      Tale_33: 9218180226928438914
+      Tale_34: 6223844637154356392
+      Tale_35: 8801103583133186566
+      Tale_36: 1423847148088217151
+      Tale_4: -1709676434687981562
+      Tale_5: 1547528686690225603
+      Tale_6: -8807268761340027493
+      Tale_7: -3134662193381405645
+      Tale_8: 997684933545216517
+      Tale_9: -602632864403610406
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

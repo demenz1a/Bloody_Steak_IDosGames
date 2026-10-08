@@ -1,0 +1,2522 @@
+fileFormatVersion: 2
+guid: 5dbd4ded97aa9634ab2c6048edd13a61
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6532279504511143864
+    second: SheepCookLegs_0
+  - first:
+      213: -1027812925410794192
+    second: SheepCookLegs_1
+  - first:
+      213: -1905793202669235409
+    second: SheepCookLegs_2
+  - first:
+      213: 8910255443819844534
+    second: SheepCookLegs_3
+  - first:
+      213: -5643026981765926430
+    second: SheepCookLegs_4
+  - first:
+      213: -3910953651087953688
+    second: SheepCookLegs_5
+  - first:
+      213: 3267730812192984799
+    second: SheepCookLegs_6
+  - first:
+      213: -8587700971351188827
+    second: SheepCookLegs_7
+  - first:
+      213: 7833226444342716545
+    second: SheepCookLegs_8
+  - first:
+      213: -1477093223496016116
+    second: SheepCookLegs_9
+  - first:
+      213: 2094386581799705075
+    second: SheepCookLegs_10
+  - first:
+      213: -7888665750883603564
+    second: SheepCookLegs_11
+  - first:
+      213: -5121849692673576612
+    second: SheepCookLegs_12
+  - first:
+      213: 4175395433069453534
+    second: SheepCookLegs_13
+  - first:
+      213: -4609068407620869498
+    second: SheepCookLegs_14
+  - first:
+      213: -5036348421687497059
+    second: SheepCookLegs_15
+  - first:
+      213: -6067062093130027622
+    second: SheepCookLegs_16
+  - first:
+      213: 2330242797152526353
+    second: SheepCookLegs_17
+  - first:
+      213: 6892008145741503719
+    second: SheepCookLegs_18
+  - first:
+      213: 3952732725499062979
+    second: SheepCookLegs_19
+  - first:
+      213: 6721992951045553093
+    second: SheepCookLegs_20
+  - first:
+      213: 9145789641692312545
+    second: SheepCookLegs_21
+  - first:
+      213: -4278767035473488697
+    second: SheepCookLegs_22
+  - first:
+      213: 817271871937739896
+    second: SheepCookLegs_23
+  - first:
+      213: 6232736145966141750
+    second: SheepCookLegs_24
+  - first:
+      213: -3140313713363026136
+    second: SheepCookLegs_25
+  - first:
+      213: -6154784588315488210
+    second: SheepCookLegs_26
+  - first:
+      213: -4425875698667203505
+    second: SheepCookLegs_27
+  - first:
+      213: -4152860114697209024
+    second: SheepCookLegs_28
+  - first:
+      213: -9044508424753924255
+    second: SheepCookLegs_29
+  - first:
+      213: -4902811018981877080
+    second: SheepCookLegs_30
+  - first:
+      213: 2906963922298257446
+    second: SheepCookLegs_31
+  - first:
+      213: 7941831384819950889
+    second: SheepCookLegs_32
+  - first:
+      213: 3529521219985020153
+    second: SheepCookLegs_33
+  - first:
+      213: 433591291906857406
+    second: SheepCookLegs_34
+  - first:
+      213: -1518855734668138965
+    second: SheepCookLegs_35
+  - first:
+      213: -3629126754948371577
+    second: SheepCookLegs_36
+  - first:
+      213: 8069722848513197708
+    second: SheepCookLegs_37
+  - first:
+      213: -9104268024284471616
+    second: SheepCookLegs_38
+  - first:
+      213: -4960253946974619883
+    second: SheepCookLegs_39
+  - first:
+      213: 1297632881300824553
+    second: SheepCookLegs_40
+  - first:
+      213: 7353019992359644471
+    second: SheepCookLegs_41
+  - first:
+      213: 7037840929621831983
+    second: SheepCookLegs_42
+  - first:
+      213: 4438033059479626554
+    second: SheepCookLegs_43
+  - first:
+      213: -9023599193972086209
+    second: SheepCookLegs_44
+  - first:
+      213: -377556778726598755
+    second: SheepCookLegs_45
+  - first:
+      213: -3793259818379712790
+    second: SheepCookLegs_46
+  - first:
+      213: -2733772885964327311
+    second: SheepCookLegs_47
+  - first:
+      213: -5851146964651907052
+    second: SheepCookLegs_48
+  - first:
+      213: -1074593055908882185
+    second: SheepCookLegs_49
+  - first:
+      213: -6233835473155098074
+    second: SheepCookLegs_50
+  - first:
+      213: -6379897293590083994
+    second: SheepCookLegs_51
+  - first:
+      213: -1246301124064260624
+    second: SheepCookLegs_52
+  - first:
+      213: -5482391957011848149
+    second: SheepCookLegs_53
+  - first:
+      213: 7897602776335398691
+    second: SheepCookLegs_54
+  - first:
+      213: -3869016387244660401
+    second: SheepCookLegs_55
+  - first:
+      213: 3734060543078792296
+    second: SheepCookLegs_56
+  - first:
+      213: -977652171345828112
+    second: SheepCookLegs_57
+  - first:
+      213: -3025191967832391685
+    second: SheepCookLegs_58
+  - first:
+      213: 4581440840601032041
+    second: SheepCookLegs_59
+  - first:
+      213: 6672046909430066223
+    second: SheepCookLegs_60
+  - first:
+      213: -9127370438434974393
+    second: SheepCookLegs_61
+  - first:
+      213: 5935444601639311659
+    second: SheepCookLegs_62
+  - first:
+      213: 1330992642517372770
+    second: SheepCookLegs_63
+  - first:
+      213: 321233626461201950
+    second: SheepCookLegs_64
+  - first:
+      213: 8607329482925939899
+    second: SheepCookLegs_65
+  - first:
+      213: 3033924797758249114
+    second: SheepCookLegs_66
+  - first:
+      213: -7395294429163699079
+    second: SheepCookLegs_67
+  - first:
+      213: -3538815063717982463
+    second: SheepCookLegs_68
+  - first:
+      213: -8809856081616267162
+    second: SheepCookLegs_69
+  - first:
+      213: 8232848888404101429
+    second: SheepCookLegs_70
+  - first:
+      213: -4667129181819056186
+    second: SheepCookLegs_71
+  - first:
+      213: 3742785174317574405
+    second: SheepCookLegs_72
+  - first:
+      213: 2448582130168338140
+    second: SheepCookLegs_73
+  - first:
+      213: -5676844430293353631
+    second: SheepCookLegs_74
+  - first:
+      213: 2549704974747846054
+    second: SheepCookLegs_75
+  - first:
+      213: 5937213962056910124
+    second: SheepCookLegs_76
+  - first:
+      213: 7824284268212858823
+    second: SheepCookLegs_77
+  - first:
+      213: -1812905830329668248
+    second: SheepCookLegs_78
+  - first:
+      213: -1391640924129056964
+    second: SheepCookLegs_79
+  - first:
+      213: -5813485744248063772
+    second: SheepCookLegs_80
+  - first:
+      213: 5079334969512210499
+    second: SheepCookLegs_81
+  - first:
+      213: 5442225221204250284
+    second: SheepCookLegs_82
+  - first:
+      213: -8156606845946868984
+    second: SheepCookLegs_83
+  - first:
+      213: 7400026660398597328
+    second: SheepCookLegs_84
+  - first:
+      213: 1451629961147337741
+    second: SheepCookLegs_85
+  - first:
+      213: 4253755118647861311
+    second: SheepCookLegs_86
+  - first:
+      213: 4423936318966710588
+    second: SheepCookLegs_87
+  - first:
+      213: -4692809106023156903
+    second: SheepCookLegs_88
+  - first:
+      213: 1795690878929862190
+    second: SheepCookLegs_89
+  - first:
+      213: 2209521098439167356
+    second: SheepCookLegs_90
+  - first:
+      213: -6622568828347468631
+    second: SheepCookLegs_91
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SheepCookLegs_0
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 2218
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8407c00766ea855a0800000000000000
+      internalID: -6532279504511143864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_1
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 2233
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 035a55507997cb1f0800000000000000
+      internalID: -1027812925410794192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_2
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 2198
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f23db83fd234d85e0800000000000000
+      internalID: -1905793202669235409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_3
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 2208
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b35fda1e1697ab70800000000000000
+      internalID: 8910255443819844534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_4
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 2212
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e1b5edabd0ffa1b0800000000000000
+      internalID: -5643026981765926430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_5
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 2212
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e0b2ed106089b9c0800000000000000
+      internalID: -3910953651087953688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_6
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 2182
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fde8c5a4cdf495d20800000000000000
+      internalID: 3267730812192984799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_7
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 2193
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aad555577b52d880800000000000000
+      internalID: -8587700971351188827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_8
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 2170
+        width: 11
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1886e3ce2f535bc60800000000000000
+      internalID: 7833226444342716545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_9
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 2169
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0f12690a8f408be0800000000000000
+      internalID: -1477093223496016116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_10
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 2175
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f91486ef71c01d10800000000000000
+      internalID: 2094386581799705075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_11
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 2155
+        width: 28
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49beac6ab44d58290800000000000000
+      internalID: -7888665750883603564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_12
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 2162
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c517f3b57d88be8b0800000000000000
+      internalID: -5121849692673576612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_13
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 2150
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed0a4e0360cf1f930800000000000000
+      internalID: 4175395433069453534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_14
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 2125
+        width: 38
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 682684204bc4900c0800000000000000
+      internalID: -4609068407620869498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_15
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 2131
+        width: 39
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9ea7305bcb4b1ab0800000000000000
+      internalID: -5036348421687497059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_16
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 2126
+        width: 7
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d2fb4cb277dcba0800000000000000
+      internalID: -6067062093130027622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_17
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 2115
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11060b45a7fa65020800000000000000
+      internalID: 2330242797152526353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_18
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 2120
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ec5504a4e455af50800000000000000
+      internalID: 6892008145741503719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_19
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 2087
+        width: 10
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3caee6ba87dead630800000000000000
+      internalID: 3952732725499062979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_20
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 2103
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cbffbd69f0594d50800000000000000
+      internalID: 6721992951045553093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2111
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e3748ff83f5cee70800000000000000
+      internalID: 9145789641692312545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_22
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 2083
+        width: 25
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c493f51d04ce94c0800000000000000
+      internalID: -4278767035473488697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_23
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 2091
+        width: 46
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87c74cbff68875b00800000000000000
+      internalID: 817271871937739896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_24
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 2068
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6319c0790802f7650800000000000000
+      internalID: 6232736145966141750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_25
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 2078
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82f75b7d05d5b64d0800000000000000
+      internalID: -3140313713363026136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_26
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 2064
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e201860c600d59aa0800000000000000
+      internalID: -6154784588315488210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_27
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 2044
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4458e850812492c0800000000000000
+      internalID: -4425875698667203505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_28
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 2061
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04bb59d7ab31e56c0800000000000000
+      internalID: -4152860114697209024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_29
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 2015
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 167b38ee1837b7280800000000000000
+      internalID: -9044508424753924255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_30
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 2024
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aad6bcba57b5fbb0800000000000000
+      internalID: -4902811018981877080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_31
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 2025
+        width: 9
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 620c67b194c975820800000000000000
+      internalID: 2906963922298257446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_32
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 1990
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 925ed3e119d073e60800000000000000
+      internalID: 7941831384819950889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_33
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 2003
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f4196079d06bf030800000000000000
+      internalID: 3529521219985020153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_34
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 2003
+        width: 7
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb99fc39bfc640600800000000000000
+      internalID: 433591291906857406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_35
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 1983
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b266a0ea1c0fbeae0800000000000000
+      internalID: -1518855734668138965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_36
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 1964
+        width: 12
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78baf6eb170c2adc0800000000000000
+      internalID: -3629126754948371577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_37
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1963
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c868b7dec2a6dff60800000000000000
+      internalID: 8069722848513197708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_38
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 1973
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ce9398e77427a180800000000000000
+      internalID: -9104268024284471616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_39
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 1946
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51739d6d053a92bb0800000000000000
+      internalID: -4960253946974619883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_40
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 1959
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e16dcafa3e120210800000000000000
+      internalID: 1297632881300824553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_41
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 1941
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73d21fe99bc2b0660800000000000000
+      internalID: 7353019992359644471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_42
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1921
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2170d3990f6ba160800000000000000
+      internalID: 7037840929621831983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_43
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 1936
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3329bbcd8f079d30800000000000000
+      internalID: 4438033059479626554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_44
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1916
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3aeac7975cb5c280800000000000000
+      internalID: -9023599193972086209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_45
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 1777
+        width: 13
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d97d5713c16a2caf0800000000000000
+      internalID: -377556778726598755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_46
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 1888
+        width: 17
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae6e6b0fa42ab5bc0800000000000000
+      internalID: -3793259818379712790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_47
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 1900
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 176708b5b00bf0ad0800000000000000
+      internalID: -2733772885964327311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_48
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 1879
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 418615b16dc8ccea0800000000000000
+      internalID: -5851146964651907052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_49
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1874
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f813702f474611f0800000000000000
+      internalID: -1074593055908882185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_50
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 1863
+        width: 25
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62a7c5a5aa7fc79a0800000000000000
+      internalID: -6233835473155098074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_51
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 1825
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6664610b63d0677a0800000000000000
+      internalID: -6379897293590083994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_52
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 1849
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fdcaf81bbf34bee0800000000000000
+      internalID: -1246301124064260624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_53
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 1802
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b24a9d2ef81aae3b0800000000000000
+      internalID: -5482391957011848149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_54
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1820
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3273c9cb1ebe99d60800000000000000
+      internalID: 7897602776335398691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_55
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 1726
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f49ed10481e7e4ac0800000000000000
+      internalID: -3869016387244660401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_56
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1738
+        width: 11
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86c7300b74c02d330800000000000000
+      internalID: 3734060543078792296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_57
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 1714
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f6ea0da78eae62f0800000000000000
+      internalID: -977652171345828112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_58
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 1678
+        width: 11
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bff3cf3feeb5406d0800000000000000
+      internalID: -3025191967832391685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_59
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 1639
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 965dd77cb2c849f30800000000000000
+      internalID: 4581440840601032041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_60
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1651
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2c6259605fd79c50800000000000000
+      internalID: 6672046909430066223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_61
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 1628
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7459ea3f1f0155180800000000000000
+      internalID: -9127370438434974393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_62
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1589
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2998b8fa6fee5250800000000000000
+      internalID: 5935444601639311659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_63
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 1615
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26f08e7a1c2a87210800000000000000
+      internalID: 1330992642517372770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_64
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1551
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1661230840457400800000000000000
+      internalID: 321233626461201950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_65
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 1567
+        width: 12
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbc1c86af80637770800000000000000
+      internalID: 8607329482925939899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_66
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 1529
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9811a5778aaa1a20800000000000000
+      internalID: 3033924797758249114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_67
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1506
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 974c54c06e2ae5990800000000000000
+      internalID: -7395294429163699079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_68
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 1516
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10fc941f27a93eec0800000000000000
+      internalID: -3538815063717982463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_69
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 1470
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66892f4029a1db580800000000000000
+      internalID: -8809856081616267162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_70
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 1495
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 539cbcac174f04270800000000000000
+      internalID: 8232848888404101429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_71
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 1440
+        width: 8
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cfc0d49cb60b3fb0800000000000000
+      internalID: -4667129181819056186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_72
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 1432
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5092cc1394b01f330800000000000000
+      internalID: 3742785174317574405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_73
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1428
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd69d08697c1bf120800000000000000
+      internalID: 2448582130168338140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_74
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 1424
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16bb53f511cc731b0800000000000000
+      internalID: -5676844430293353631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_75
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 1411
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a544e56a2f526320800000000000000
+      internalID: 2549704974747846054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_76
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 1404
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2544eb44a8356250800000000000000
+      internalID: 5937213962056910124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_77
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 1395
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cf218c4611759c60800000000000000
+      internalID: 7824284268212858823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_78
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 1385
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86d27f3a0c347d6e0800000000000000
+      internalID: -1812905830329668248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_79
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1381
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c372466e3f5eface0800000000000000
+      internalID: -1391640924129056964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_80
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1372
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e8fb4b4489525fa0800000000000000
+      internalID: -5813485744248063772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_81
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1363
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 340bef84e3c6d7640800000000000000
+      internalID: 5079334969512210499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_82
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 1360
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cae0d89210ba68b40800000000000000
+      internalID: 5442225221204250284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_83
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1349
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80b41d60a49edce80800000000000000
+      internalID: -8156606845946868984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_84
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 1055
+        width: 36
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d48a756a0d22b660800000000000000
+      internalID: 7400026660398597328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_85
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 995
+        width: 20
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0c408332c9352410800000000000000
+      internalID: 1451629961147337741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_86
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 934
+        width: 20
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3061883ebf580b30800000000000000
+      internalID: 4253755118647861311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_87
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 869
+        width: 17
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c31c5f0a4aaf46d30800000000000000
+      internalID: 4423936318966710588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_88
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 851
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95375cc4bfacfdeb0800000000000000
+      internalID: -4692809106023156903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_89
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 765
+        width: 38
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2ef50527539be810800000000000000
+      internalID: 1795690878929862190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_90
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 195
+        width: 212
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7d82348bbbc9ae10800000000000000
+      internalID: 2209521098439167356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SheepCookLegs_91
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 203
+        width: 216
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a436cd0db8e714a0800000000000000
+      internalID: -6622568828347468631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SheepCookLegs_0: -6532279504511143864
+      SheepCookLegs_1: -1027812925410794192
+      SheepCookLegs_10: 2094386581799705075
+      SheepCookLegs_11: -7888665750883603564
+      SheepCookLegs_12: -5121849692673576612
+      SheepCookLegs_13: 4175395433069453534
+      SheepCookLegs_14: -4609068407620869498
+      SheepCookLegs_15: -5036348421687497059
+      SheepCookLegs_16: -6067062093130027622
+      SheepCookLegs_17: 2330242797152526353
+      SheepCookLegs_18: 6892008145741503719
+      SheepCookLegs_19: 3952732725499062979
+      SheepCookLegs_2: -1905793202669235409
+      SheepCookLegs_20: 6721992951045553093
+      SheepCookLegs_21: 9145789641692312545
+      SheepCookLegs_22: -4278767035473488697
+      SheepCookLegs_23: 817271871937739896
+      SheepCookLegs_24: 6232736145966141750
+      SheepCookLegs_25: -3140313713363026136
+      SheepCookLegs_26: -6154784588315488210
+      SheepCookLegs_27: -4425875698667203505
+      SheepCookLegs_28: -4152860114697209024
+      SheepCookLegs_29: -9044508424753924255
+      SheepCookLegs_3: 8910255443819844534
+      SheepCookLegs_30: -4902811018981877080
+      SheepCookLegs_31: 2906963922298257446
+      SheepCookLegs_32: 7941831384819950889
+      SheepCookLegs_33: 3529521219985020153
+      SheepCookLegs_34: 433591291906857406
+      SheepCookLegs_35: -1518855734668138965
+      SheepCookLegs_36: -3629126754948371577
+      SheepCookLegs_37: 8069722848513197708
+      SheepCookLegs_38: -9104268024284471616
+      SheepCookLegs_39: -4960253946974619883
+      SheepCookLegs_4: -5643026981765926430
+      SheepCookLegs_40: 1297632881300824553
+      SheepCookLegs_41: 7353019992359644471
+      SheepCookLegs_42: 7037840929621831983
+      SheepCookLegs_43: 4438033059479626554
+      SheepCookLegs_44: -9023599193972086209
+      SheepCookLegs_45: -377556778726598755
+      SheepCookLegs_46: -3793259818379712790
+      SheepCookLegs_47: -2733772885964327311
+      SheepCookLegs_48: -5851146964651907052
+      SheepCookLegs_49: -1074593055908882185
+      SheepCookLegs_5: -3910953651087953688
+      SheepCookLegs_50: -6233835473155098074
+      SheepCookLegs_51: -6379897293590083994
+      SheepCookLegs_52: -1246301124064260624
+      SheepCookLegs_53: -5482391957011848149
+      SheepCookLegs_54: 7897602776335398691
+      SheepCookLegs_55: -3869016387244660401
+      SheepCookLegs_56: 3734060543078792296
+      SheepCookLegs_57: -977652171345828112
+      SheepCookLegs_58: -3025191967832391685
+      SheepCookLegs_59: 4581440840601032041
+      SheepCookLegs_6: 3267730812192984799
+      SheepCookLegs_60: 6672046909430066223
+      SheepCookLegs_61: -9127370438434974393
+      SheepCookLegs_62: 5935444601639311659
+      SheepCookLegs_63: 1330992642517372770
+      SheepCookLegs_64: 321233626461201950
+      SheepCookLegs_65: 8607329482925939899
+      SheepCookLegs_66: 3033924797758249114
+      SheepCookLegs_67: -7395294429163699079
+      SheepCookLegs_68: -3538815063717982463
+      SheepCookLegs_69: -8809856081616267162
+      SheepCookLegs_7: -8587700971351188827
+      SheepCookLegs_70: 8232848888404101429
+      SheepCookLegs_71: -4667129181819056186
+      SheepCookLegs_72: 3742785174317574405
+      SheepCookLegs_73: 2448582130168338140
+      SheepCookLegs_74: -5676844430293353631
+      SheepCookLegs_75: 2549704974747846054
+      SheepCookLegs_76: 5937213962056910124
+      SheepCookLegs_77: 7824284268212858823
+      SheepCookLegs_78: -1812905830329668248
+      SheepCookLegs_79: -1391640924129056964
+      SheepCookLegs_8: 7833226444342716545
+      SheepCookLegs_80: -5813485744248063772
+      SheepCookLegs_81: 5079334969512210499
+      SheepCookLegs_82: 5442225221204250284
+      SheepCookLegs_83: -8156606845946868984
+      SheepCookLegs_84: 7400026660398597328
+      SheepCookLegs_85: 1451629961147337741
+      SheepCookLegs_86: 4253755118647861311
+      SheepCookLegs_87: 4423936318966710588
+      SheepCookLegs_88: -4692809106023156903
+      SheepCookLegs_89: 1795690878929862190
+      SheepCookLegs_9: -1477093223496016116
+      SheepCookLegs_90: 2209521098439167356
+      SheepCookLegs_91: -6622568828347468631
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

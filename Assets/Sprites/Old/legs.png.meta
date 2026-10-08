@@ -1,0 +1,355 @@
+fileFormatVersion: 2
+guid: 1616f3f0f48fc2e409146ba027130897
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2915034706872494343
+    second: legs_0
+  - first:
+      213: -728150186094094199
+    second: legs_1
+  - first:
+      213: 3894582078195042835
+    second: legs_2
+  - first:
+      213: 4085793136712361830
+    second: legs_3
+  - first:
+      213: 6731066775135229459
+    second: legs_4
+  - first:
+      213: 8444259778946166519
+    second: legs_5
+  - first:
+      213: -7807960199795560022
+    second: legs_6
+  - first:
+      213: 2759210934662234445
+    second: legs_7
+  - first:
+      213: -2196029540247852935
+    second: legs_8
+  - first:
+      213: 5456082775107482113
+    second: legs_9
+  - first:
+      213: -3526627634298273244
+    second: legs_10
+  - first:
+      213: -6462306242378621061
+    second: legs_11
+  - first:
+      213: -1391601253741926380
+    second: legs_12
+  - first:
+      213: 2676305300964875022
+    second: legs_13
+  - first:
+      213: -4026649796589571004
+    second: legs_14
+  - first:
+      213: 3050176019275921012
+    second: legs_15
+  - first:
+      213: -8308832911888664874
+    second: legs_16
+  - first:
+      213: 865793434770150324
+    second: legs_17
+  - first:
+      213: 4101921857543705811
+    second: legs_18
+  - first:
+      213: -8578978150354065312
+    second: legs_19
+  - first:
+      213: 3404772238822964048
+    second: legs_20
+  - first:
+      213: -1361322165612787079
+    second: legs_21
+  - first:
+      213: 1936799899709084143
+    second: legs_22
+  - first:
+      213: 262660356274192613
+    second: legs_23
+  - first:
+      213: 4828187802635916095
+    second: legs_24
+  - first:
+      213: 1067768146377664451
+    second: legs_25
+  - first:
+      213: 8704587611612927258
+    second: legs_26
+  - first:
+      213: 5397988390246265074
+    second: legs_27
+  - first:
+      213: -8104653353998734876
+    second: legs_28
+  - first:
+      213: -7897766310875783684
+    second: legs_29
+  - first:
+      213: -6579094678839364614
+    second: legs_30
+  - first:
+      213: 3022981067947510307
+    second: legs_31
+  - first:
+      213: 8992175936820629445
+    second: legs_32
+  - first:
+      213: -5608018491721533105
+    second: legs_33
+  - first:
+      213: -9046370619260935646
+    second: legs_34
+  - first:
+      213: -8808024782075284110
+    second: legs_35
+  - first:
+      213: -2482184258459596184
+    second: legs_36
+  - first:
+      213: 5026938929345001603
+    second: legs_37
+  - first:
+      213: 8593761098748133238
+    second: legs_38
+  - first:
+      213: 3096227757054017099
+    second: legs_39
+  - first:
+      213: -3317196921369023361
+    second: legs_40
+  - first:
+      213: -7445657697213831793
+    second: legs_41
+  - first:
+      213: -1312587863482154438
+    second: legs_42
+  - first:
+      213: -5266014498938617618
+    second: legs_43
+  - first:
+      213: 6140735075977984654
+    second: legs_44
+  - first:
+      213: -5416038309002513019
+    second: legs_45
+  - first:
+      213: -88419022517079316
+    second: legs_46
+  - first:
+      213: -230607008121327995
+    second: legs_47
+  - first:
+      213: -6207479277843334711
+    second: legs_48
+  - first:
+      213: -3925793738690024170
+    second: legs_49
+  - first:
+      213: 489727750373597317
+    second: legs_50
+  - first:
+      213: 3416902469884346334
+    second: legs_51
+  - first:
+      213: 2058099258521538570
+    second: legs_52
+  - first:
+      213: 4081462565088012837
+    second: legs_53
+  - first:
+      213: -7277305387991389253
+    second: legs_54
+  - first:
+      213: -7481832928321360669
+    second: legs_55
+  - first:
+      213: 2836354415735900601
+    second: legs_56
+  - first:
+      213: 6370852683944877826
+    second: legs_57
+  - first:
+      213: -1791931762976420166
+    second: legs_58
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 932, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: legs_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 874
+        height: 2595
+      alignment: 9
+      pivot: {x: 0.8727066, y: 0.26261497}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f61eece067bb87d0800000000000000
+      internalID: -2915034706872494343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legs_1
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 0
+        width: 941
+        height: 2595
+      alignment: 9
+      pivot: {x: 0.14354794, y: 0.25888643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daadc52899ecb6b4c8f69f270870b72e
+      internalID: -728150186094094199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1812.0,"y":2595.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      legs_0: -2915034706872494343
+      legs_1: -728150186094094199
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,256 @@
+fileFormatVersion: 2
+guid: 4167981ab74d3f34dab95cf6a572afad
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5210253079701947964
+    second: SheepNPCChest_0
+  - first:
+      213: -7623588017438609330
+    second: SheepNPCChest_1
+  - first:
+      213: 8622952679416310986
+    second: SheepNPCChest_2
+  - first:
+      213: 6762987686954356895
+    second: SheepNPCChest_3
+  - first:
+      213: 3315733447604826279
+    second: SheepNPCChest_4
+  - first:
+      213: -8892157476545846024
+    second: SheepNPCChest_5
+  - first:
+      213: 847342638656617729
+    second: SheepNPCChest_6
+  - first:
+      213: -3373081975131116584
+    second: SheepNPCChest_7
+  - first:
+      213: -5777036246118769960
+    second: SheepNPCChest_8
+  - first:
+      213: 3400938236325171620
+    second: SheepNPCChest_9
+  - first:
+      213: -7974222470503345040
+    second: SheepNPCChest_10
+  - first:
+      213: -9066681872971132480
+    second: SheepNPCChest_11
+  - first:
+      213: -6549310612968587621
+    second: SheepNPCChest_12
+  - first:
+      213: -6746931662971194983
+    second: SheepNPCChest_13
+  - first:
+      213: 1859658833217035767
+    second: SheepNPCChest_14
+  - first:
+      213: -5665103184310285437
+    second: SheepNPCChest_15
+  - first:
+      213: -863493341173448597
+    second: SheepNPCChest_16
+  - first:
+      213: -8592220185685893174
+    second: SheepNPCChest_17
+  - first:
+      213: -4120733082443264402
+    second: SheepNPCChest_18
+  - first:
+      213: 5445520478564747517
+    second: SheepNPCChest_19
+  - first:
+      213: 7989898767194937781
+    second: SheepNPCChest_20
+  - first:
+      213: -8156508115719016242
+    second: SheepNPCChest_21
+  - first:
+      213: 4103224698598991369
+    second: SheepNPCChest_22
+  - first:
+      213: -1961042852111980541
+    second: SheepNPCChest_23
+  - first:
+      213: 9215223396858236062
+    second: SheepNPCChest_24
+  - first:
+      213: -7998687239663162467
+    second: SheepNPCChest_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SheepNPCChest_17
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 659
+        width: 688
+        height: 908
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf5040c34d42c880800000000000000
+      internalID: -8592220185685893174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: cde37dd5af3da6347bd76d16a73ae79c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SheepNPCChest_0: -5210253079701947964
+      SheepNPCChest_1: -7623588017438609330
+      SheepNPCChest_10: -7974222470503345040
+      SheepNPCChest_11: -9066681872971132480
+      SheepNPCChest_12: -6549310612968587621
+      SheepNPCChest_13: -6746931662971194983
+      SheepNPCChest_14: 1859658833217035767
+      SheepNPCChest_15: -5665103184310285437
+      SheepNPCChest_16: -863493341173448597
+      SheepNPCChest_17: -8592220185685893174
+      SheepNPCChest_18: -4120733082443264402
+      SheepNPCChest_19: 5445520478564747517
+      SheepNPCChest_2: 8622952679416310986
+      SheepNPCChest_20: 7989898767194937781
+      SheepNPCChest_21: -8156508115719016242
+      SheepNPCChest_22: 4103224698598991369
+      SheepNPCChest_23: -1961042852111980541
+      SheepNPCChest_24: 9215223396858236062
+      SheepNPCChest_25: -7998687239663162467
+      SheepNPCChest_3: 6762987686954356895
+      SheepNPCChest_4: 3315733447604826279
+      SheepNPCChest_5: -8892157476545846024
+      SheepNPCChest_6: 847342638656617729
+      SheepNPCChest_7: -3373081975131116584
+      SheepNPCChest_8: -5777036246118769960
+      SheepNPCChest_9: 3400938236325171620
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
