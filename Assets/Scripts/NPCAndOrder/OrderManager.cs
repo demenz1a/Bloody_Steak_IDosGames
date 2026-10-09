@@ -35,6 +35,7 @@ public class OrderManager : MonoBehaviour
 
     [Header("Penalties")]
     [SerializeField] private float wrongDeliveryPenalty = 5f;
+    [Tooltip("Количество попыток: каждый проваленный по таймеру заказ отнимает одну.")]
     [SerializeField] private int maxMistakes = 5;
 
     private readonly List<Order> _activeOrders = new List<Order>();
@@ -43,10 +44,15 @@ public class OrderManager : MonoBehaviour
     public IReadOnlyList<Order> ActiveOrders => _activeOrders;
     public bool HasFreeSlot => _activeOrders.Count < maxActiveOrders;
     public int MistakeCount { get; private set; }
+    public int MaxAttempts => maxMistakes;
+    public int RemainingAttempts => Mathf.Max(0, maxMistakes - MistakeCount);
 
     public event Action<Order> OnOrderCreated;
     public event Action<Order> OnOrderCompleted;
     public event Action<Order> OnOrderFailed;
+    /// <summary>(remaining, max) — для иконок попыток (AttemptsUI).</summary>
+    public event Action<int, int> OnAttemptsChanged;
+    /// <summary>Попытки закончились. Слушает GameOverManager.</summary>
     public event Action OnGameOver;
 
     private void OnEnable() => playerForm.OnFormChanged += HandleFormChanged;
@@ -147,7 +153,9 @@ public class OrderManager : MonoBehaviour
         OnOrderFailed?.Invoke(order);
 
         MistakeCount++;
-        if (MistakeCount >= maxMistakes)
+        OnAttemptsChanged?.Invoke(RemainingAttempts, MaxAttempts);
+
+        if (RemainingAttempts == 0)
         {
             OnGameOver?.Invoke();
         }

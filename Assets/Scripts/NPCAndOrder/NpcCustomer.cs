@@ -466,10 +466,13 @@ public class NpcCustomer : MonoBehaviour, IInteractable
         }
     }
 
-    /// <summary>Заглушка — система полиции ещё не реализована.</summary>
+    /// <summary>
+    /// Временно: свидетель убийства сразу заканчивает игру поражением.
+    /// Позже здесь будет вызов полицейского, а геймовер — после его анимации.
+    /// </summary>
     private void CallPolice()
     {
-        Debug.Log($"{name}: зовёт полицию! (заглушка — система полиции ещё не реализована)");
+        GameOverManager.Instance?.TriggerGameOver(GameOverReason.CaughtByPolice);
     }
 
     // ---- Подбор трупа (п. 13.3, уточнение: теперь по отдельному нажатию, не автоматически) ----
