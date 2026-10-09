@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "idosgames-code": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "@idosgames/mcp"]
+    }
+  }
+}
