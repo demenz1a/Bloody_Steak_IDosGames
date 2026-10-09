@@ -15,7 +15,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Проект в процессе переписывания:
 - **Актуальный код:** `Assets/Scripts/` (корень, `Player/`, `NPCAndOrder/`). Актуальная сцена: `Assets/Scenes/GameScene.unity`.
-- **Устаревший код:** `Assets/Scripts/OldScripts/` (все классы с префиксом `Old*`) и сцены в `Assets/Scenes/OldScenes/`. Не расширяй и не используй их в новом коде. Build Settings пока ссылаются **только на старые сцены**.
+- **Устаревший код:** `Assets/Scripts/OldScripts/` (все классы с префиксом `Old*`) и сцены в `Assets/Scenes/OldScenes/`. Не расширяй и не используй их в новом коде. В Build Settings старые сцены (`MainMenu`, `Tutorial`, `GameSceneOld`, концовки) идут первыми, `GameScene` — последней: билд стартует со старого меню.
 
 ## Архитектура (актуальный код)
 
@@ -36,7 +36,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Убийство и трупы.** Труп — это тот же `NpcCustomer` в состоянии `Dead`, а не `CarriableItem`. При убийстве агент отключается, а `Rigidbody2D` переводится в Kinematic: иначе тело не следует за родителем. Подобранный труп становится ребёнком `corpseHoldPoint` в `PlayerCorpseState`. Пока игрок несёт труп, `PlayerInventory` не берёт предметы. `MeatGrinderMachine` уничтожает труп и пополняет `MeatTable`.
 
-**Паника.** `PanicManager` — синглтон (`Instance`). Значение шкалы не хранится, а каждый кадр вычисляется из состояния: если кто-то паникует, шкала равна 1, иначе берётся максимальный прогресс экспозиции. Паника возникает двумя путями: `NpcPanicZone` копит время, пока рядом игрок с трупом, а `PanicManager.ScanForWitnesses` при убийстве мгновенно пугает свидетелей в радиусе (слой `panicZoneMask`). `CallPolice()` пока заглушка.
+**Паника.** `PanicManager` — синглтон (`Instance`). Значение шкалы не хранится, а каждый кадр вычисляется из состояния: если кто-то паникует, шкала равна 1, иначе берётся максимальный прогресс экспозиции. Паника возникает двумя путями: `NpcPanicZone` копит время, пока рядом игрок с трупом, а `PanicManager.ScanForWitnesses` при убийстве мгновенно пугает свидетелей в радиусе (слой `panicZoneMask`). Паникующий NPC отменяет свой заказ без штрафа и бежит к выходу. Свидетель убийства (`PanicSeverity.WitnessedKill`) вызывает `NpcCustomer.CallPolice()`, который пока сразу заканчивает игру (`GameOverReason.CaughtByPolice`). Позже здесь появится полицейский.
 
 **Геймовер** (`GameOver/`). `GameOverManager` — синглтон и единственный источник правды по состоянию «игра окончена». Это состояние внутри GameScene, а не отдельная сцена. Любая система заканчивает игру через `TriggerGameOver(GameOverReason)`. Сейчас его вызывают `OrderManager.OnGameOver` (кончились попытки, см. `RemainingAttempts`/`OnAttemptsChanged`) и `NpcCustomer.CallPolice()`. Менеджер глушит музыку, отключает управление и ставит `Time.timeScale = 0`, поэтому `GameOverUI` анимирует всё на unscaled time. Экран собирается в сцене пунктом меню **Bloody Steak/Setup Game Over** (`Assets/Scripts/Editor/GameOverSetup.cs`).
 
