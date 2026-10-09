@@ -263,6 +263,7 @@ MonoBehaviour:
   tablePoints: {fileID: 355389026}
   toiletPoints: {fileID: 1228236765}
   orderManager: {fileID: 2090471284}
+  difficulty: {fileID: 753396065}
   minSpawnInterval: 3
   maxSpawnInterval: 6
   twoItemOrderChance: 0.509
@@ -14190,6 +14191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 753396063}
   - component: {fileID: 753396064}
+  - component: {fileID: 753396065}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -14237,6 +14239,62 @@ MonoBehaviour:
   gameOverSound: {fileID: 0}
   freezeTime: 1
   mainMenuSceneName: MainMenu
+--- !u!114 &753396065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753396062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d69223d1c2b9a4391ee0022743bcd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyManager
+  timeToMaxDifficulty: 300
+  difficultyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  startDifficulty: 0
+  orderDuration:
+    easy: 45
+    hard: 20
+  twoItemOrderChance:
+    easy: 0.1
+    hard: 0.5
+  minSpawnInterval:
+    easy: 8
+    hard: 3
+  maxSpawnInterval:
+    easy: 13
+    hard: 6
+  eatDuration:
+    easy: 12
+    hard: 5
+  toiletDuration:
+    easy: 6
+    hard: 3
 --- !u!1 &777037727
 GameObject:
   m_ObjectHideFlags: 0
@@ -31482,6 +31540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OrderManager
   playerForm: {fileID: 1551721237}
+  difficulty: {fileID: 753396065}
   maxActiveOrders: 3
   orderDuration: 30
   wolfTimeScale: 0.35

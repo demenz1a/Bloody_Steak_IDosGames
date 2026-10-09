@@ -40,6 +40,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Геймовер** (`GameOver/`). `GameOverManager` — синглтон и единственный источник правды по состоянию «игра окончена». Это состояние внутри GameScene, а не отдельная сцена. Любая система заканчивает игру через `TriggerGameOver(GameOverReason)`. Сейчас его вызывают `OrderManager.OnGameOver` (кончились попытки, см. `RemainingAttempts`/`OnAttemptsChanged`) и `NpcCustomer.CallPolice()`. Менеджер глушит музыку, отключает управление и ставит `Time.timeScale = 0`, поэтому `GameOverUI` анимирует всё на unscaled time. Экран собирается в сцене пунктом меню **Bloody Steak/Setup Game Over** (`Assets/Scripts/Editor/GameOverSetup.cs`).
 
+**Сложность** (`Difficulty/`). `DifficultyManager` хранит сложность 0..1: она растёт с игровым временем до `timeToMaxDifficulty` по кривой `difficultyCurve`. Каждый параметр задаётся парой `DifficultyRange` (easy/hard). Значения читаются в момент создания: `OrderManager` берёт время заказа, `NpcSpawner` — интервал спауна, шанс двойного заказа и время еды/туалета, которые передаёт в `NpcCustomer.SetStayDurations`. Уже созданные заказы и клиенты на лету не меняются. Без назначенного `DifficultyManager` системы используют свои значения из инспектора. Подключается пунктом меню **Bloody Steak/Setup Difficulty**.
+
 **Движение.** `PlayerMovement` двигает игрока через `Rigidbody2D.MovePosition`, ввод через legacy `Input` (Active Input Handling = Both). Он ничего не знает о других системах. Блокировку движения на время анимаций включают Animation Events через `MovementLockEvents`.
 
 ## Соглашения

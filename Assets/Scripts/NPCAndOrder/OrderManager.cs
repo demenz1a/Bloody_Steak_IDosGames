@@ -26,6 +26,9 @@ public class OrderManager : MonoBehaviour
 {
     [SerializeField] private PlayerFormController playerForm;
 
+    [Tooltip("Если назначен — время ожидания нового заказа берётся из него, а orderDuration игнорируется.")]
+    [SerializeField] private DifficultyManager difficulty;
+
     [Header("Orders")]
     [SerializeField] private int maxActiveOrders = 3;
     [SerializeField] private float orderDuration = 30f;
@@ -84,7 +87,8 @@ public class OrderManager : MonoBehaviour
             // Труп не уничтожается сразу, поэтому одной проверки на null недостаточно.
             if (customer == null || !customer.IsWaitingForOrderCreation) continue;
 
-            var order = new Order(customer, customer.DesiredDishes, orderDuration);
+            float duration = difficulty != null ? difficulty.OrderDuration : orderDuration;
+            var order = new Order(customer, customer.DesiredDishes, duration);
 
             _activeOrders.Add(order);
             customer.OnOrderCreated(order);

@@ -18,11 +18,15 @@ public class NpcSpawner : MonoBehaviour
     [SerializeField] private PointGroup toiletPoints;
     [SerializeField] private OrderManager orderManager;
 
-    [Header("Spawn timing")]
+    [Tooltip("Если назначен — интервалы спауна, размер заказа и время пребывания клиента " +
+             "берутся из него, а поля ниже игнорируются.")]
+    [SerializeField] private DifficultyManager difficulty;
+
+    [Header("Spawn timing (без DifficultyManager)")]
     [SerializeField] private float minSpawnInterval = 4f;
     [SerializeField] private float maxSpawnInterval = 9f;
 
-    [Header("Order size")]
+    [Header("Order size (без DifficultyManager)")]
     [Range(0f, 1f)]
     [SerializeField] private float twoItemOrderChance = 0.35f;
 
@@ -35,7 +39,9 @@ public class NpcSpawner : MonoBehaviour
         if (_spawnTimer <= 0f)
         {
             TrySpawn();
-            _spawnTimer = UnityEngine.Random.Range(minSpawnInterval, maxSpawnInterval);
+            _spawnTimer = difficulty != null
+                ? difficulty.NextSpawnInterval()
+                : UnityEngine.Random.Range(minSpawnInterval, maxSpawnInterval);
         }
     }
 
@@ -47,12 +53,18 @@ public class NpcSpawner : MonoBehaviour
         var dishes = RandomDishes();
 
         npc.Initialize(orderManager, tablePoints, toiletPoints, exitPoint, reservedOrderPoint, dishes);
+
+        if (difficulty != null)
+        {
+            npc.SetStayDurations(difficulty.EatDuration, difficulty.ToiletDuration);
+        }
     }
 
     private List<DishFamily> RandomDishes()
     {
         var values = (DishFamily[])Enum.GetValues(typeof(DishFamily));
-        int count = UnityEngine.Random.value < twoItemOrderChance ? 2 : 1;
+        float chance = difficulty != null ? difficulty.TwoItemOrderChance : twoItemOrderChance;
+        int count = UnityEngine.Random.value < chance ? 2 : 1;
 
         var result = new List<DishFamily>(count);
         for (int i = 0; i < count; i++)

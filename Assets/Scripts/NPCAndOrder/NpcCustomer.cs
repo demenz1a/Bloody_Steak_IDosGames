@@ -140,6 +140,16 @@ public class NpcCustomer : MonoBehaviour, IInteractable
         _agent.SetDestination(reservedOrderPoint.transform.position);
     }
 
+    /// <summary>
+    /// Время еды и туалета для этого клиента — спаунер передаёт значения от DifficultyManager.
+    /// Не вызван — остаются значения из инспектора префаба.
+    /// </summary>
+    public void SetStayDurations(float eatSeconds, float toiletSeconds)
+    {
+        eatDuration = eatSeconds;
+        toiletDuration = toiletSeconds;
+    }
+
     private void Update()
     {
         if (_state == NpcState.Dead)
