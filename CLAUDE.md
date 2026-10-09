@@ -29,7 +29,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Посетители и заказы** (`NPCAndOrder/`):
 - `NpcSpawner` спавнит клиента, только если удалось зарезервировать точку заказа (`PointGroup`/`ReservablePoint`).
-- `NpcCustomer` — машина состояний (`NpcState`) на `NavMeshAgent`. NPC не создаёт `Order` сам: он вызывает `OrderManager.RequestOrder` и ждёт коллбэк `OnOrderCreated`.
+- `NpcCustomer` — машина состояний (`NpcState`) на `NavMeshAgent`. Взаимный обход агентов намеренно выключен (`avoidOtherCustomers`): с ним клиенты толпились во входе и у точек заказа. Не включай его обратно без решения этой проблемы. NPC не создаёт `Order` сам: он вызывает `OrderManager.RequestOrder` и ждёт коллбэк `OnOrderCreated`.
 - `OrderManager` — единственный источник правды по заказам. Он хранит очередь ожидающих (`_pendingCustomers`) отдельно от активных заказов (не больше `maxActiveOrders`).
 - Заказ хранит `DishFamily`, а не `ProductType`. Сопоставление — в `ProductFamily`. Неверное блюдо вызывает штраф по времени, а не провал заказа. Провал по таймеру увеличивает `MistakeCount`, при `maxMistakes` срабатывает `OnGameOver`.
 - `NpcCustomer` — один `IInteractable` на три действия: выдать блюдо, убить, подобрать труп. Цвет обводки выставляется в `CanInteract`.

@@ -80,7 +80,9 @@ public class OrderManager : MonoBehaviour
         while (_pendingCustomers.Count > 0 && HasFreeSlot)
         {
             var customer = _pendingCustomers.Dequeue();
-            if (customer == null) continue; // клиента убили, пока он ждал в очереди — пропускаем
+            // Клиента уничтожили, убили или он запаниковал, пока ждал в очереди, — заказ ему не нужен.
+            // Труп не уничтожается сразу, поэтому одной проверки на null недостаточно.
+            if (customer == null || !customer.IsWaitingForOrderCreation) continue;
 
             var order = new Order(customer, customer.DesiredDishes, orderDuration);
 

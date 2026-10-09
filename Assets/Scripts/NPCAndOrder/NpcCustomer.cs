@@ -29,6 +29,13 @@ public class NpcCustomer : MonoBehaviour, IInteractable
     [SerializeField] private float toiletDuration = 4f;
     [SerializeField] private float arriveThreshold = 0.15f;
 
+    [Header("Navigation")]
+    [Tooltip("Обходят ли клиенты друг друга (локальное избегание NavMeshAgent). Выключено намеренно: " +
+             "с избеганием клиенты толпятся в узком входе и не пропускают друг друга к соседним " +
+             "точкам заказа — стоящий клиент для агента тоже препятствие, и сосед никогда не доходит " +
+             "до своей точки на arriveThreshold. Стены и путь по NavMesh от этого не зависят.")]
+    [SerializeField] private bool avoidOtherCustomers = false;
+
     [Header("Toilet chance")]
     [Range(0f, 1f)]
     [SerializeField] private float toiletChance = 0.5f;
@@ -89,6 +96,8 @@ public class NpcCustomer : MonoBehaviour, IInteractable
     public IReadOnlyList<DishFamily> DesiredDishes { get; private set; }
     public bool IsPanicking => _state == NpcState.Panicking;
     public bool IsDead => _state == NpcState.Dead;
+    /// <summary>Стоит на точке заказа и ждёт, пока OrderManager создаст ему Order.</summary>
+    public bool IsWaitingForOrderCreation => _state == NpcState.WaitingForOrderCreation;
 
     private void Awake()
     {
@@ -96,6 +105,11 @@ public class NpcCustomer : MonoBehaviour, IInteractable
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
         _baseAgentSpeed = _agent.speed;
+
+        if (!avoidOtherCustomers)
+        {
+            _agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+        }
 
         if (visualRoot != null)
         {
@@ -267,7 +281,7 @@ public class NpcCustomer : MonoBehaviour, IInteractable
     private void MoveToTableAfterOrderCompleted()
     {
         orderBubble?.Hide();
-        _reservedOrderPoint.Release();
+        ReleasePoint(ref _reservedOrderPoint);
 
         if (_tablePoints.TryReserveRandomFree(out _reservedTable))
         {
@@ -287,7 +301,7 @@ public class NpcCustomer : MonoBehaviour, IInteractable
 
         if (wantsToilet && _toiletPoints.TryReserveRandomFree(out _reservedToilet))
         {
-            _reservedTable?.Release();
+            ReleasePoint(ref _reservedTable);
             _state = NpcState.MovingToToilet;
             _agent.SetDestination(_reservedToilet.transform.position);
         }
@@ -313,9 +327,23 @@ public class NpcCustomer : MonoBehaviour, IInteractable
 
     private void ReleaseAllReservedPoints()
     {
-        _reservedOrderPoint?.Release();
-        _reservedTable?.Release();
-        _reservedToilet?.Release();
+        ReleasePoint(ref _reservedOrderPoint);
+        ReleasePoint(ref _reservedTable);
+        ReleasePoint(ref _reservedToilet);
+    }
+
+    /// <summary>
+    /// Освободить точку И забыть ссылку на неё. Обнулять ссылку обязательно: освобождённую
+    /// точку сразу может занять другой NPC, и повторный Release() по старой ссылке
+    /// (например, из ReleaseAllReservedPoints на выходе) освободил бы уже ЕГО точку —
+    /// так на одной точке заказа оказывались два клиента.
+    /// </summary>
+    private static void ReleasePoint(ref ReservablePoint point)
+    {
+        if (point == null) return;
+
+        point.Release();
+        point = null;
     }
 
     // ---- IInteractable: три взаимоисключающих действия на одном объекте ----
