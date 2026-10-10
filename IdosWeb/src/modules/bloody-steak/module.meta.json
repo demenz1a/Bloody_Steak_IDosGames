@@ -1,0 +1,13 @@
+{
+  "id": "bloody-steak",
+  "type": "template",
+  "summary": "Bloody Steak: a kitchen stealth-kill simulator built in Unity, run as a WebGL scene; submits the shift score to the best_score leaderboard.",
+  "provides": [
+    "Unity WebGL game scene",
+    "pause while the player is in the lobby",
+    "shift score submission to the leaderboard"
+  ],
+  "tags": ["unity", "webgl", "simulation", "leaderboard"],
+  "author": { "name": "Bloody Steak team" },
+  "version": "0.1.0"
+}

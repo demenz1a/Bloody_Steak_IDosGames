@@ -1,0 +1,68 @@
+import { defineModule, type Module } from "@idosgames/module-sdk";
+import { createUnityScene } from "./game/unityScene";
+import { t } from "./i18n";
+
+/** Leaderboard of the best shift score (title config: Leaderboard.Definitions.best_score). */
+export const LEADERBOARD_ID = "best_score";
+
+declare global {
+  interface Window {
+    /** What the Unity build calls through Assets/Plugins/WebGL/IdosBridge.jslib. */
+    BloodySteakHost?: { submitScore(score: number): void };
+  }
+}
+
+// Bloody Steak itself: the Unity WebGL build as a full-screen game behind the lobby's "Play". Sign-in
+// and the leaderboard screen belong to the base and the leaderboard module; this module only runs
+// the game and turns the score the game reports at the end of a shift into a leaderboard submission.
+export const bloodySteakModule: Module = defineModule({
+  id: "bloody-steak",
+  meta: { name: "Bloody Steak", type: "game", genre: "simulation", engine: "dom" },
+  setup(ctx) {
+    const scene = createUnityScene();
+    let lastScore: number | null = null;
+    let best: number | null = null;
+
+    const submitScore = async (score: number) => {
+      lastScore = score;
+      // The server rejects a score <= 0 anyway; a shift with no points is simply not recorded.
+      if (!(score > 0)) return;
+      const res = await ctx.client.leaderboard.submitScore(LEADERBOARD_ID, Math.floor(score));
+      if (!res.ok) {
+        ctx.notifications.toast({ level: "error", message: t("scoreFailed"), source: "leaderboard" });
+        return;
+      }
+      // best_score keeps the maximum (BestScore): NewScore equals this shift only when it is the record.
+      const isRecord = res.data.NewScore === Math.floor(score);
+      best = res.data.NewScore;
+      ctx.notifications.toast({
+        level: isRecord ? "reward" : "success",
+        title: isRecord ? t("newRecord") : undefined,
+        message: `${t("scoreSent")}: ${Math.floor(score)}`,
+        icon: "trophy",
+        source: "leaderboard",
+      });
+    };
+
+    ctx.effect(() => {
+      window.BloodySteakHost = { submitScore: (score) => void submitScore(score) };
+      return () => {
+        delete window.BloodySteakHost;
+      };
+    });
+
+    ctx.registerScene(scene);
+    ctx.registerRoute({ id: "bloody-steak", label: t("play"), icon: "🥩" });
+
+    ctx.exposeToAgent({
+      state: () => ({ unity: scene.state(), lastScore, best, leaderboard: LEADERBOARD_ID }),
+      actions: {
+        submitScore: (args) => submitScore(Number(args?.score ?? 0)),
+      },
+      describeActions: {
+        submitScore:
+          "submitScore({ score: number }) — submit a shift score exactly as the Unity build does at the end of a shift.",
+      },
+    });
+  },
+});

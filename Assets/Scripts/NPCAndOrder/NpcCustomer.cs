@@ -93,6 +93,12 @@ public class NpcCustomer : MonoBehaviour, IInteractable
     private float _baseAgentSpeed;
     private PlayerMovement _carriedByMovement;
 
+    /// <summary>
+    /// Игрок убил клиента: (жертва, была ли она в панике). Статическое — клиенты спаунятся
+    /// на лету, и подписчикам (ScoreManager) неоткуда взять ссылку на каждого.
+    /// </summary>
+    public static event System.Action<NpcCustomer, bool> Killed;
+
     public IReadOnlyList<DishFamily> DesiredDishes { get; private set; }
     public bool IsPanicking => _state == NpcState.Panicking;
     public bool IsDead => _state == NpcState.Dead;
@@ -109,6 +115,17 @@ public class NpcCustomer : MonoBehaviour, IInteractable
         if (!avoidOtherCustomers)
         {
             _agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
+        }
+
+        // Живого клиента двигает только NavMeshAgent, и стены он обходит сам по NavMesh. Dynamic-тело
+        // этому мешало: коллайдер стоит на ногах, заметно ниже точки, по которой строится путь, и на
+        // выходе из туалета упирался в стену — физика не пускала, агент продолжал толкать, клиент
+        // застревал. Kinematic не останавливается о стены, но игрок (Dynamic) по-прежнему упирается
+        // в клиента, а триггеры зон паники/форм работают как раньше.
+        if (rb != null)
+        {
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.linearVelocity = Vector2.zero;
         }
 
         if (visualRoot != null)
@@ -438,6 +455,8 @@ public class NpcCustomer : MonoBehaviour, IInteractable
 
     private void Kill(PlayerInteractor player)
     {
+        bool wasPanicking = _state == NpcState.Panicking;
+
         if (_order != null)
         {
             _orderManager.CancelOrder(_order); // без штрафа — это выбор игрока, а не провал по таймеру
@@ -465,6 +484,10 @@ public class NpcCustomer : MonoBehaviour, IInteractable
         }
 
         _state = NpcState.Dead;
+
+        // До скана свидетелей: он может сразу закончить игру (полиция), а очки за убийство
+        // должны успеть начислиться до подсчёта итога.
+        Killed?.Invoke(this, wasPanicking);
 
         // Скан свидетелей: все NPC с зоной паники в радиусе мгновенно впадают в панику.
         PanicManager.Instance.ScanForWitnesses(transform.position, killWitnessScanRadius, this);

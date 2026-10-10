@@ -21,8 +21,10 @@ public struct DifficultyRange
 
 /// <summary>
 /// Единственный источник правды по сложности. Сложность — число 0..1, которое растёт
-/// с игровым временем: 0 в начале смены, 1 через timeToMaxDifficulty секунд. Форму роста
-/// задаёт difficultyCurve (по умолчанию плавный старт и плавный выход на максимум).
+/// с игровым временем: 0 в начале смены, 1 к её концу. Если назначен MatchTimer, прогресс
+/// берётся из него (сложность доходит до максимума ровно к концу смены), иначе — 1 через
+/// timeToMaxDifficulty секунд. Форму роста задаёт difficultyCurve (по умолчанию плавный
+/// старт и плавный выход на максимум).
 ///
 /// Сам менеджер ничего не меняет в других системах — он только отвечает на вопрос
 /// "какое значение параметра сейчас". OrderManager и NpcSpawner спрашивают его в момент
@@ -33,7 +35,9 @@ public struct DifficultyRange
 public class DifficultyManager : MonoBehaviour
 {
     [Header("Progression")]
-    [Tooltip("За сколько секунд игры сложность доходит до максимума.")]
+    [Tooltip("Таймер смены. Если назначен — сложность растёт вместе с ним, а timeToMaxDifficulty игнорируется.")]
+    [SerializeField] private MatchTimer matchTimer;
+    [Tooltip("За сколько секунд игры сложность доходит до максимума (если MatchTimer не назначен).")]
     [SerializeField] private float timeToMaxDifficulty = 300f;
     [Tooltip("Форма роста: X — доля времени (0..1), Y — сложность (0..1).")]
     [SerializeField] private AnimationCurve difficultyCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
@@ -59,6 +63,12 @@ public class DifficultyManager : MonoBehaviour
     [Tooltip("Сколько секунд клиент проводит в туалете.")]
     [SerializeField] private DifficultyRange toiletDuration = new DifficultyRange(6f, 3f);
 
+    [Header("Money")]
+    [Tooltip("Нижняя граница денег за выполненный заказ.")]
+    [SerializeField] private DifficultyRange orderRewardMin = new DifficultyRange(10f, 25f);
+    [Tooltip("Верхняя граница денег за выполненный заказ.")]
+    [SerializeField] private DifficultyRange orderRewardMax = new DifficultyRange(20f, 50f);
+
     private float _elapsed;
 
     /// <summary>Текущая сложность 0..1.</summary>
@@ -77,6 +87,14 @@ public class DifficultyManager : MonoBehaviour
         return Random.Range(min, max);
     }
 
+    /// <summary>Случайная награда за выполненный заказ в текущих границах (включительно).</summary>
+    public int NextOrderReward()
+    {
+        int min = Mathf.RoundToInt(orderRewardMin.Evaluate(Difficulty));
+        int max = Mathf.Max(min, Mathf.RoundToInt(orderRewardMax.Evaluate(Difficulty)));
+        return Random.Range(min, max + 1);
+    }
+
     private void Awake()
     {
         _elapsed = startDifficulty * timeToMaxDifficulty;
@@ -91,7 +109,11 @@ public class DifficultyManager : MonoBehaviour
 
     private void UpdateDifficulty()
     {
-        float time01 = timeToMaxDifficulty > 0f ? Mathf.Clamp01(_elapsed / timeToMaxDifficulty) : 1f;
+        float time01;
+        if (matchTimer != null)
+            time01 = Mathf.Lerp(startDifficulty, 1f, matchTimer.Progress01); // startDifficulty — сдвиг старта
+        else
+            time01 = timeToMaxDifficulty > 0f ? Mathf.Clamp01(_elapsed / timeToMaxDifficulty) : 1f;
         Difficulty = Mathf.Clamp01(difficultyCurve.Evaluate(time01));
     }
 }

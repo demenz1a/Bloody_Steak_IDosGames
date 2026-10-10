@@ -31,6 +31,7 @@ public class NpcSpawner : MonoBehaviour
     [SerializeField] private float twoItemOrderChance = 0.35f;
 
     private float _spawnTimer;
+    private DishFamily? _lastDish;
 
     private void Update()
     {
@@ -69,8 +70,25 @@ public class NpcSpawner : MonoBehaviour
         var result = new List<DishFamily>(count);
         for (int i = 0; i < count; i++)
         {
-            result.Add(values[UnityEngine.Random.Range(0, values.Length)]);
+            var dish = NextDish(values);
+            result.Add(dish);
+            _lastDish = dish;
         }
         return result;
+    }
+
+    /// <summary>
+    /// Случайное блюдо, но не то же, что заказано последним (и внутри заказа, и между клиентами):
+    /// иначе подряд выпадали серии вроде "5 сосисок у трёх клиентов".
+    /// </summary>
+    private DishFamily NextDish(DishFamily[] values)
+    {
+        if (_lastDish == null || values.Length < 2)
+            return values[UnityEngine.Random.Range(0, values.Length)];
+
+        // Выбираем из остальных: сдвиг на 1..Length-1 от индекса прошлого блюда.
+        int last = Array.IndexOf(values, _lastDish.Value);
+        int offset = UnityEngine.Random.Range(1, values.Length);
+        return values[(last + offset) % values.Length];
     }
 }

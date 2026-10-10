@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.env.local
+# Копия Unity WebGL-билда: собирается из Unity (Builds/WebGL/Build) перед npm run build.
+public/unity/

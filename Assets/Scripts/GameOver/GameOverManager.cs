@@ -10,12 +10,14 @@ public enum GameOverReason
 }
 
 /// <summary>
-/// Единственный источник правды по состоянию "игра окончена". Геймовер — это состояние
-/// внутри GameScene, а не отдельная сцена: менеджер останавливает игру (музыка, управление,
-/// время), а всё визуальное (кровь, надпись, кнопки) делает GameOverUI по событию OnGameOver.
+/// Единственный источник правды по состоянию "игра окончена" — и поражением, и победой.
+/// Конец игры — это состояние внутри GameScene, а не отдельная сцена: менеджер останавливает
+/// игру (музыка, управление, время), а всё визуальное делают GameOverUI (по OnGameOver)
+/// и VictoryUI (по OnVictory).
 ///
-/// Любая система, которая хочет закончить игру, вызывает TriggerGameOver(reason).
-/// Повторные вызовы после первого игнорируются — геймовер срабатывает ровно один раз.
+/// Поражение: любая система вызывает TriggerGameOver(reason).
+/// Победа: игрок дожил до конца смены — MatchTimer.OnFinished вызывает TriggerVictory().
+/// Повторные вызовы после первого игнорируются — игра заканчивается ровно один раз.
 /// </summary>
 public class GameOverManager : MonoBehaviour
 {
@@ -23,34 +25,40 @@ public class GameOverManager : MonoBehaviour
 
     [Header("Sources")]
     [SerializeField] private OrderManager orderManager;
+    [Tooltip("Таймер смены: по его окончании игрок побеждает. Можно не назначать — тогда победы нет.")]
+    [SerializeField] private MatchTimer matchTimer;
 
     [Header("Player")]
-    [Tooltip("Отключается при геймовере, чтобы Space больше ничего не делал.")]
+    [Tooltip("Отключается в конце игры, чтобы Space больше ничего не делал.")]
     [SerializeField] private PlayerInteractor playerInteractor;
     [SerializeField] private PlayerMovement playerMovement;
 
     [Header("Audio")]
-    [Tooltip("Источники музыки, которые глушатся при геймовере. Музыки пока нет — можно оставить пустым.")]
+    [Tooltip("Источники музыки, которые глушатся в конце игры. Музыки пока нет — можно оставить пустым.")]
     [SerializeField] private AudioSource[] musicSources;
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioClip gameOverSound;
+    [SerializeField] private AudioClip victorySound;
 
     [Header("Time")]
-    [Tooltip("Останавливать ли игровое время (NPC, таймеры заказов, станции). UI геймовера работает на unscaled time.")]
+    [Tooltip("Останавливать ли игровое время (NPC, таймеры заказов, станции). UI конца игры работает на unscaled time.")]
     [SerializeField] private bool freezeTime = true;
 
     [Header("Scenes")]
     [SerializeField] private string mainMenuSceneName = "MainMenu";
 
+    /// <summary>Игра закончилась — победой или поражением.</summary>
     public bool IsGameOver { get; private set; }
+    public bool IsVictory { get; private set; }
     public GameOverReason Reason { get; private set; }
 
     public event Action<GameOverReason> OnGameOver;
+    public event Action OnVictory;
 
     private void Awake()
     {
         Instance = this;
-        Time.timeScale = 1f; // страховка: после рестарта из замороженного геймовера время должно идти
+        Time.timeScale = 1f; // страховка: после рестарта из замороженного конца игры время должно идти
     }
 
     private void OnDestroy()
@@ -61,11 +69,13 @@ public class GameOverManager : MonoBehaviour
     private void OnEnable()
     {
         if (orderManager != null) orderManager.OnGameOver += HandleOutOfAttempts;
+        if (matchTimer != null) matchTimer.OnFinished += TriggerVictory;
     }
 
     private void OnDisable()
     {
         if (orderManager != null) orderManager.OnGameOver -= HandleOutOfAttempts;
+        if (matchTimer != null) matchTimer.OnFinished -= TriggerVictory;
     }
 
     private void HandleOutOfAttempts() => TriggerGameOver(GameOverReason.OutOfAttempts);
@@ -74,18 +84,32 @@ public class GameOverManager : MonoBehaviour
     {
         if (IsGameOver) return;
 
-        IsGameOver = true;
         Reason = reason;
+        EndGame(gameOverSound);
+        OnGameOver?.Invoke(reason);
+    }
+
+    /// <summary>Игрок дожил до конца смены.</summary>
+    public void TriggerVictory()
+    {
+        if (IsGameOver) return;
+
+        IsVictory = true;
+        EndGame(victorySound);
+        OnVictory?.Invoke();
+    }
+
+    private void EndGame(AudioClip sound)
+    {
+        IsGameOver = true;
 
         StopMusic();
-        if (sfxSource != null && gameOverSound != null) sfxSource.PlayOneShot(gameOverSound);
+        if (sfxSource != null && sound != null) sfxSource.PlayOneShot(sound);
 
         if (playerInteractor != null) playerInteractor.enabled = false;
         if (playerMovement != null) playerMovement.SetMovementLocked(true);
 
         if (freezeTime) Time.timeScale = 0f;
-
-        OnGameOver?.Invoke(reason);
     }
 
     private void StopMusic()

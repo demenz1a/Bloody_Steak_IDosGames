@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+    <title>{{{ PRODUCT_NAME }}}</title>
+    <style>
+      /* Шаблон для iDosGames: игра вписывается в iframe целиком, без рамки и подвала Unity.
+         Пропорции канваса сохраняются ({{{ WIDTH }}}x{{{ HEIGHT }}}), лишнее место — чёрные поля. */
+      html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }
+      #unity-container { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+      #unity-canvas {
+        --ratio: calc({{{ WIDTH }}} / {{{ HEIGHT }}});
+        width: min(100vw, 100vh * var(--ratio));
+        height: min(100vh, 100vw / var(--ratio));
+        display: block; outline: none;
+        background: {{{ BACKGROUND_FILENAME ? 'url(\'Build/' + BACKGROUND_FILENAME.replace(/'/g, '%27') + '\') center / cover' : BACKGROUND_COLOR }}};
+      }
+      #loading { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(60vw, 320px); text-align: center;
+                 font: 600 14px/1.4 system-ui, sans-serif; color: #c0392b; letter-spacing: 0.1em; }
+      #loading-bar { margin-top: 10px; height: 6px; background: #2a0b0b; border-radius: 3px; overflow: hidden; }
+      #loading-fill { width: 0; height: 100%; background: #c0392b; transition: width 0.2s; }
+      #error { display: none; position: absolute; left: 50%; top: 16px; transform: translateX(-50%); max-width: 90vw;
+               padding: 10px 14px; background: #2a0b0b; color: #fff; font: 13px/1.4 system-ui, sans-serif; border-radius: 4px; }
+    </style>
+  </head>
+  <body>
+    <div id="unity-container">
+      <canvas id="unity-canvas" width={{{ WIDTH }}} height={{{ HEIGHT }}} tabindex="-1"></canvas>
+      <div id="loading">BLOODY STEAK<div id="loading-bar"><div id="loading-fill"></div></div></div>
+      <div id="error"></div>
+    </div>
+    <script src="Build/{{{ LOADER_FILENAME }}}"></script>
+    <script>
+      var canvas = document.querySelector("#unity-canvas");
+      var loading = document.querySelector("#loading");
+      var fill = document.querySelector("#loading-fill");
+
+      function showError(message) {
+        var el = document.querySelector("#error");
+        el.textContent = message;
+        el.style.display = "block";
+      }
+
+      createUnityInstance(canvas, {
+        arguments: [],
+        dataUrl: "Build/{{{ DATA_FILENAME }}}",
+        frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+#if USE_THREADS
+        workerUrl: "Build/{{{ WORKER_FILENAME }}}",
+#endif
+#if USE_WASM
+        codeUrl: "Build/{{{ CODE_FILENAME }}}",
+#endif
+#if SYMBOLS_FILENAME
+        symbolsUrl: "Build/{{{ SYMBOLS_FILENAME }}}",
+#endif
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
+        productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+        productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+        showBanner: function (message, type) { if (type === "error") showError(message); },
+      }, function (progress) {
+        fill.style.width = (100 * progress) + "%";
+      }).then(function () {
+        loading.style.display = "none";
+        canvas.focus();
+      }).catch(function (message) {
+        showError(message);
+      });
+
+      // Клавиатура в iframe работает только после фокуса на канвасе.
+      canvas.addEventListener("pointerdown", function () { canvas.focus(); });
+    </script>
+  </body>
+</html>
