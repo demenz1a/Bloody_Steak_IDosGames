@@ -18,6 +18,7 @@ public class TrashBin : MonoBehaviour, IInteractable
         if (item != null)
         {
             Destroy(item.gameObject);
+            SoundManager.Play(SoundId.Trash);
         }
     }
 }

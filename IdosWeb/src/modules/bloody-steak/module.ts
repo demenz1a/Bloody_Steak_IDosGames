@@ -1,6 +1,10 @@
-import { defineModule, type Module } from "@idosgames/module-sdk";
+import { defineModule, defineTopic, shape, type Module } from "@idosgames/module-sdk";
+import { equippedSkin } from "../../shared/skins";
 import { createUnityScene } from "./game/unityScene";
 import { t } from "./i18n";
+
+/** Copy of the skins module's topic (modules never import each other). */
+const skinEquipped = defineTopic("skins:equipped@1", shape({ skinId: "string" }));
 
 /** Leaderboard of the best shift score (title config: Leaderboard.Definitions.best_score). */
 export const LEADERBOARD_ID = "best_score";
@@ -19,7 +23,11 @@ export const bloodySteakModule: Module = defineModule({
   id: "bloody-steak",
   meta: { name: "Bloody Steak", type: "game", genre: "simulation", engine: "dom" },
   setup(ctx) {
-    const scene = createUnityScene();
+    const scene = createUnityScene(() => equippedSkin(ctx.client));
+    // The equipped skin lives in the player's custom data; load it once so a skin bought in an
+    // earlier session is on the player from the first shift.
+    void ctx.client.userCustomData.getMyUserCustomData().then(() => scene.setSkin(equippedSkin(ctx.client)));
+    ctx.events.on(skinEquipped, ({ skinId }) => scene.setSkin(skinId));
     let lastScore: number | null = null;
     let best: number | null = null;
 
@@ -55,7 +63,13 @@ export const bloodySteakModule: Module = defineModule({
     ctx.registerRoute({ id: "bloody-steak", label: t("play"), icon: "🥩" });
 
     ctx.exposeToAgent({
-      state: () => ({ unity: scene.state(), lastScore, best, leaderboard: LEADERBOARD_ID }),
+      state: () => ({
+        unity: scene.state(),
+        lastScore,
+        best,
+        leaderboard: LEADERBOARD_ID,
+        skin: equippedSkin(ctx.client),
+      }),
       actions: {
         submitScore: (args) => submitScore(Number(args?.score ?? 0)),
       },

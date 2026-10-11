@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a356957a176beb479c9e485a9f5c504, type: 3}
+  m_Name: IDosSkin
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSkin
+  skinId: idos
+  displayName: IDos
+  swaps:
+  - original: {fileID: 6943535168657398750, guid: cdb890e4a4258c94b8044f332f63a54e, type: 3}
+    replacement: {fileID: 1931421176, guid: e8b5f61889aec19458855d04a6d399fb, type: 3}
+  - original: {fileID: -6834524911116659543, guid: b5075705081559348937f10350ae29ef, type: 3}
+    replacement: {fileID: 1832076186, guid: 0d988d0308c325a4b9c4b33b17ee7f01, type: 3}
+  - original: {fileID: 1368413106863272610, guid: 08b1f33611d73a64badc6f06389ecd97, type: 3}
+    replacement: {fileID: 1273964631, guid: 365d17cc246b77e41a0605454b576c8e, type: 3}
+  - original: {fileID: 5800173839196415397, guid: 95b89ae28ab89e0459c31f0b4fbbc10e, type: 3}
+    replacement: {fileID: -661887987, guid: 86303c2878a0310429e21fb858047bf6, type: 3}
+  - original: {fileID: -7687307636189039108, guid: 9ae20c621c8446d458832f5c04f8a4e5, type: 3}
+    replacement: {fileID: -403874219, guid: 37d3e3b515ec73f4ba4d3dadc83b3378, type: 3}
+  - original: {fileID: -8222877691690482927, guid: 846a2432efaded548b54ab47d0e59471, type: 3}
+    replacement: {fileID: 1319603150, guid: 50f60b8b56a0c124fa9a49618c855cae, type: 3}
+  - original: {fileID: -1635775750, guid: 99d9cfb4e23f8ba42bc919bffe018a7d, type: 3}
+    replacement: {fileID: 1656787691, guid: 6776b860f912512459162e82655c90b2, type: 3}
+  - original: {fileID: 505878037, guid: 99d9cfb4e23f8ba42bc919bffe018a7d, type: 3}
+    replacement: {fileID: -1221910727, guid: 6776b860f912512459162e82655c90b2, type: 3}
+  - original: {fileID: 1881613121373718890, guid: 8ea63032ccc40cc478b830929feec703, type: 3}
+    replacement: {fileID: -61937442, guid: 3481d1ab926de214fbeb5895ef0f0a1e, type: 3}
+  - original: {fileID: -557430140217975604, guid: 8ea63032ccc40cc478b830929feec703, type: 3}
+    replacement: {fileID: -965930438, guid: 3481d1ab926de214fbeb5895ef0f0a1e, type: 3}
+  - original: {fileID: -4442034026943016851, guid: f9d315b017019de48a2a6ed15890d65b, type: 3}
+    replacement: {fileID: 1421550229, guid: bb3a035a6a7308841bd594949555e500, type: 3}
+  - original: {fileID: 1423847148088217151, guid: 8ecf71272b2ee104f852d2ad578c24d7, type: 3}
+    replacement: {fileID: 1095503878, guid: 878d8c4d5744e8e40826f3d9d81a3fb8, type: 3}
+  chefSwaps:
+  - original: {fileID: -7687307636189039108, guid: 9ae20c621c8446d458832f5c04f8a4e5, type: 3}
+    replacement: {fileID: 329033957, guid: 07fe4b337ee83a44d9a11413c8213513, type: 3}
+  - original: {fileID: -8222877691690482927, guid: 846a2432efaded548b54ab47d0e59471, type: 3}
+    replacement: {fileID: 1745323097, guid: f46ace0d96d16bb47933ef4c1470a392, type: 3}

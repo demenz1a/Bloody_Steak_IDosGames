@@ -1,0 +1,14 @@
+Звуки игры — все CC0 (public domain), указание авторства не требуется.
+Папка Assets/Audio/<SoundId>/ = клипы этого звука (Bloody Steak/Assign Sounds From Folders).
+
+Sizzle/frying_pan_3.ogg         BigSoundBank — Frying pan #3        https://bigsoundbank.com/frying-pan-3-s0145.html            CC0
+Grinder/loop_generator_1.mp3    OpenGameArt — Generator loop         https://opengameart.org/content/generator-loop              CC0
+SheepBleat/sheep_baa.ogg        OpenGameArt — Sheep Baa (AntumDeluge) https://opengameart.org/node/132779                         CC0
+ClockTick/clock-1.ogg           OpenGameArt — Ticking Clock (AntumDeluge) https://opengameart.org/content/ticking-clock-0          CC0
+KillRaise/drawKnife*.ogg        Kenney — RPG Audio                   https://opengameart.org/content/50-rpg-sound-effects       CC0
+Footstep, BodyFall, Trash, Spotted   Kenney — Impact Sounds          https://kenney.nl/assets/impact-sounds                     CC0
+AttemptLost, OrderDelivered, FoodReady, FoodBurnt   Kenney — Interface Sounds   https://kenney.nl/assets/interface-sounds   CC0
+Defeat, Victory                 Kenney — Music Jingles               https://kenney.nl/assets/music-jingles                     CC0
+DoorBell/shop_doorbell_chime.mp3   BigSoundBank — Shop doorbell chime   https://bigsoundbank.com/shop-doorbell-chime-s3588.html  CC0
+ToiletFlush/flush_5.mp3         BigSoundBank — Flush #5              https://bigsoundbank.com/flush-5-s2610.html                CC0
+NpcDeathScream/sheep_1..3.mp3   BigSoundBank — Sheep #1-#3 (Joseph Sardin) https://bigsoundbank.com/sheep-1-s2343.html          CC0

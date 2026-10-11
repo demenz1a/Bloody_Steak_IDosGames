@@ -51,6 +51,7 @@ public class NpcSpawner : MonoBehaviour
         if (!orderPoints.TryReserveFirstFree(out var reservedOrderPoint)) return;
 
         var npc = Instantiate(npcPrefab, spawnPoint.position, Quaternion.identity);
+        SoundManager.Play(SoundId.DoorBell); // колокольчик над дверью — клиент вошёл
         var dishes = RandomDishes();
 
         npc.Initialize(orderManager, tablePoints, toiletPoints, exitPoint, reservedOrderPoint, dishes);

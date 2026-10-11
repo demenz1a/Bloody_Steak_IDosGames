@@ -14849,6 +14849,7 @@ GameObject:
   - component: {fileID: 753396068}
   - component: {fileID: 753396067}
   - component: {fileID: 753396066}
+  - component: {fileID: 753396069}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -14893,9 +14894,6 @@ MonoBehaviour:
   playerInteractor: {fileID: 5710683288082495847}
   playerMovement: {fileID: 5710683288082495846}
   musicSources: []
-  sfxSource: {fileID: 0}
-  gameOverSound: {fileID: 0}
-  victorySound: {fileID: 0}
   freezeTime: 1
   mainMenuSceneName: MainMenu
 --- !u!114 &753396065
@@ -15009,6 +15007,123 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MatchTimer
   matchDuration: 300
+--- !u!114 &753396069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753396062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d404056ecc72bd145bcbfa3233fd6f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  sounds:
+  - id: 0
+    clips:
+    - {fileID: 8300000, guid: 8cce40bab05b2224f8ef3f1f084da41a, type: 3}
+    volume: 0.6
+    pitchJitter: 0
+    minInterval: 0
+  - id: 1
+    clips:
+    - {fileID: 8300000, guid: a478d6340338ff842ad7f509e5247faa, type: 3}
+    volume: 0.6
+    pitchJitter: 0
+    minInterval: 0
+  - id: 2
+    clips:
+    - {fileID: 8300000, guid: acaa19e8c71daa648a917c51a602d870, type: 3}
+    - {fileID: 8300000, guid: ef8c1d8ca3470c64c8740946d1eaa9a5, type: 3}
+    - {fileID: 8300000, guid: da3e7174f474db44f9aae6a1d30be573, type: 3}
+    - {fileID: 8300000, guid: ffde535918404cf4d9acc3f5ad949baa, type: 3}
+    - {fileID: 8300000, guid: eaed67567f6a12545ae53b03a1fd7140, type: 3}
+    volume: 0.5
+    pitchJitter: 0.1
+    minInterval: 0
+  - id: 3
+    clips:
+    - {fileID: 8300000, guid: 8250ae6e21cbf024a8a88e6303f17c17, type: 3}
+    volume: 1
+    pitchJitter: 0.12
+    minInterval: 0.3
+  - id: 4
+    clips:
+    - {fileID: 8300000, guid: 1e751b806f8d59440ad03d892c50b43d, type: 3}
+    - {fileID: 8300000, guid: 69812ff3b5fb59148a60dc5c5210aa67, type: 3}
+    - {fileID: 8300000, guid: 5a5cfd9f47000ad4e8c27dff83e60f45, type: 3}
+    volume: 1
+    pitchJitter: 0.05
+    minInterval: 0
+  - id: 5
+    clips:
+    - {fileID: 8300000, guid: b26e97bd54c3cfd4c82769f727db8b00, type: 3}
+    - {fileID: 8300000, guid: 57fa9e74298322941a378a882a050ed5, type: 3}
+    - {fileID: 8300000, guid: 222af92132d7eb6438ae8bea0f0bcea5, type: 3}
+    volume: 1
+    pitchJitter: 0.05
+    minInterval: 0
+  - id: 6
+    clips:
+    - {fileID: 8300000, guid: abc223f95a04bff4fad452e69e9ad2c8, type: 3}
+    - {fileID: 8300000, guid: 6b02145178e919e46ad709e072eb9326, type: 3}
+    volume: 1
+    pitchJitter: 0.05
+    minInterval: 0
+  - id: 7
+    clips:
+    - {fileID: 8300000, guid: 102d31cf93371bc4298ba131ab5c0e96, type: 3}
+    volume: 1
+    pitchJitter: 0.05
+    minInterval: 0
+  - id: 8
+    clips:
+    - {fileID: 8300000, guid: 5853be157046b8444b9515ebd232ac2b, type: 3}
+    volume: 1
+    pitchJitter: 0
+    minInterval: 0
+  - id: 9
+    clips:
+    - {fileID: 8300000, guid: 168c74cb560672d4d93a17bbe08807f9, type: 3}
+    volume: 1
+    pitchJitter: 0
+    minInterval: 0
+  - id: 10
+    clips:
+    - {fileID: 8300000, guid: a628f13ec56117f4e9a8ebd859525f65, type: 3}
+    volume: 0.6
+    pitchJitter: 0
+    minInterval: 0
+  - id: 11
+    clips:
+    - {fileID: 8300000, guid: 9829873adb625724eac2e0d2780c8ec3, type: 3}
+    volume: 1
+    pitchJitter: 0.05
+    minInterval: 0
+  - id: 12
+    clips:
+    - {fileID: 8300000, guid: 9c37f0aba27b9734e97f3883cfb90808, type: 3}
+    volume: 1
+    pitchJitter: 0.05
+    minInterval: 0
+  - id: 13
+    clips:
+    - {fileID: 8300000, guid: d35f1a884d78baa4b9ad38c1fbb9c46e, type: 3}
+    volume: 1
+    pitchJitter: 0.05
+    minInterval: 0
+  - id: 14
+    clips:
+    - {fileID: 8300000, guid: 122fb6572f136da4598f3f3b4d0d730e, type: 3}
+    volume: 1
+    pitchJitter: 0.05
+    minInterval: 0.5
+  orderManager: {fileID: 2090471284}
+  gameOver: {fileID: 753396064}
+  matchTimer: {fileID: 753396068}
+  clockTickSeconds: 30
+  oneShotVoices: 8
 --- !u!1 &777037727
 GameObject:
   m_ObjectHideFlags: 0
@@ -23950,6 +24065,7 @@ MonoBehaviour:
   holdPoint: {fileID: 1796868213}
   timerUI: {fileID: 670477007}
   cookingParticles: {fileID: 1145847946}
+  cookingLoop: 0
   shakeAmplitude: 0.03
   shakeSpeed: 25
 --- !u!212 &1470402700
@@ -25097,6 +25213,7 @@ MonoBehaviour:
   holdPoint: {fileID: 1121355082}
   timerUI: {fileID: 1391105308}
   cookingParticles: {fileID: 39825073}
+  cookingLoop: 0
   shakeAmplitude: 0.03
   shakeSpeed: 25
 --- !u!212 &1571888629
@@ -32355,6 +32472,7 @@ MonoBehaviour:
   holdPoint: {fileID: 1094216427}
   timerUI: {fileID: 1100280704}
   cookingParticles: {fileID: 0}
+  cookingLoop: 1
   shakeAmplitude: 0.03
   shakeSpeed: 25
 --- !u!212 &1932791400

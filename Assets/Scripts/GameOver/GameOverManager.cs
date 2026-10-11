@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public enum GameOverReason
 {
     OutOfAttempts,  // закончились попытки — провалены заказы (см. OrderManager.OnGameOver)
-    CaughtByPolice  // игрока-волка поймали (пока — сразу из NpcCustomer.CallPolice)
+    WitnessEscaped  // свидетель убийства добежал до выхода и поднял тревогу (NpcCustomer.EscapeRestaurant)
 }
 
 /// <summary>
@@ -34,11 +34,9 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
 
     [Header("Audio")]
-    [Tooltip("Источники музыки, которые глушатся в конце игры. Музыки пока нет — можно оставить пустым.")]
+    [Tooltip("Источники музыки, которые глушатся в конце игры. Музыки пока нет — можно оставить пустым. " +
+             "Звуки победы и поражения играет SoundManager по OnVictory / OnGameOver.")]
     [SerializeField] private AudioSource[] musicSources;
-    [SerializeField] private AudioSource sfxSource;
-    [SerializeField] private AudioClip gameOverSound;
-    [SerializeField] private AudioClip victorySound;
 
     [Header("Time")]
     [Tooltip("Останавливать ли игровое время (NPC, таймеры заказов, станции). UI конца игры работает на unscaled time.")]
@@ -85,7 +83,7 @@ public class GameOverManager : MonoBehaviour
         if (IsGameOver) return;
 
         Reason = reason;
-        EndGame(gameOverSound);
+        EndGame();
         OnGameOver?.Invoke(reason);
     }
 
@@ -95,16 +93,15 @@ public class GameOverManager : MonoBehaviour
         if (IsGameOver) return;
 
         IsVictory = true;
-        EndGame(victorySound);
+        EndGame();
         OnVictory?.Invoke();
     }
 
-    private void EndGame(AudioClip sound)
+    private void EndGame()
     {
         IsGameOver = true;
 
         StopMusic();
-        if (sfxSource != null && sound != null) sfxSource.PlayOneShot(sound);
 
         if (playerInteractor != null) playerInteractor.enabled = false;
         if (playerMovement != null) playerMovement.SetMovementLocked(true);

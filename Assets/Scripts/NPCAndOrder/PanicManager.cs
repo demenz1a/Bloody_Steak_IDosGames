@@ -31,6 +31,12 @@ public class PanicManager : MonoBehaviour
     private readonly Dictionary<NpcCustomer, PanicSeverity> _severityByNpc = new Dictionary<NpcCustomer, PanicSeverity>();
     private readonly Dictionary<NpcCustomer, float> _exposureProgress = new Dictionary<NpcCustomer, float>();
 
+    /// <summary>Кто-то сейчас паникует (шкала полная) — для музыки уровня паники.</summary>
+    public bool IsPanicActive => _panickingNpcs.Count > 0;
+
+    /// <summary>Новый NPC запаниковал — игрока заметили (звук).</summary>
+    public event System.Action<NpcCustomer, PanicSeverity> OnPanicStarted;
+
     private void Awake()
     {
         Instance = this;
@@ -45,9 +51,12 @@ public class PanicManager : MonoBehaviour
     /// <summary>Вызывается NpcCustomer.EnterPanic — регистрирует нового паникующего.</summary>
     public void RegisterPanic(NpcCustomer npc, PanicSeverity severity)
     {
-        if (!_panickingNpcs.Contains(npc)) _panickingNpcs.Add(npc);
-        _severityByNpc[npc] = severity; // не влияет на саму шкалу, но может пригодиться (напр. для полиции)
+        bool isNew = !_panickingNpcs.Contains(npc);
+        if (isNew) _panickingNpcs.Add(npc);
+        _severityByNpc[npc] = severity; // не влияет на саму шкалу; свидетель убийства при побеге заканчивает игру (NpcCustomer)
         _exposureProgress.Remove(npc); // больше не "на грани" — уже паникует по-настоящему
+
+        if (isNew) OnPanicStarted?.Invoke(npc, severity);
     }
 
     /// <summary>Вызывается, когда паникующий NPC покидает сцену (см. NpcCustomer, состояние Panicking).</summary>

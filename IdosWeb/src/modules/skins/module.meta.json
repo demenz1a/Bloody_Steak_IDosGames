@@ -1,0 +1,18 @@
+{
+  "id": "skins",
+  "type": "feature",
+  "summary": "Skins shop: player skins sold for BloodyCoin through the 'skins' store, equipped from the same screen.",
+  "provides": ["skins shop screen", "buy a skin for crypto", "equip a skin"],
+  "tags": ["skins", "shop", "cosmetics", "ui", "screen"],
+  "events": {
+    "emits": [
+      {
+        "topic": "skins:equipped@1",
+        "when": "the player equips a skin on the Skins screen",
+        "payload": { "skinId": "string" }
+      }
+    ]
+  },
+  "author": { "name": "Bloody Steak team" },
+  "version": "0.1.0"
+}

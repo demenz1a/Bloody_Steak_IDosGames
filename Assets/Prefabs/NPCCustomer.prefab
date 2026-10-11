@@ -430,6 +430,7 @@ MonoBehaviour:
   eatDuration: 0.6
   toiletDuration: 484
   arriveThreshold: 0.15
+  avoidOtherCustomers: 0
   toiletChance: 0.416
   orderBubble: {fileID: 6309749557204571418}
   highlight: {fileID: 637287268640496675}
@@ -445,7 +446,7 @@ MonoBehaviour:
   headSprite: {fileID: 4708597849328877892}
   headSpriteAngry: {fileID: -697354480611068585, guid: 198c1459cd88e5544bd195e039aa98ee, type: 3}
   killWitnessScanRadius: 4
-  panicSpeedMultiplier: 1.8
+  panicSpeedMultiplier: 2.6
   rb: {fileID: 3525988408257400089}
 --- !u!114 &6309749557204571418
 MonoBehaviour:
@@ -5733,6 +5734,7 @@ GameObject:
   - component: {fileID: 5406913814076150299}
   - component: {fileID: 510027163701962440}
   - component: {fileID: 834688835097299240}
+  - component: {fileID: 6099580761246979415}
   m_Layer: 7
   m_Name: VisualRoot
   m_TagString: Untagged
@@ -5809,6 +5811,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParticleEffectEvent
   cookingParticles: {fileID: 2328206809875307779}
+--- !u!114 &6099580761246979415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3685394344797379713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8bc1701093e8f4aa8e18edae9c4ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationSoundEvents
 --- !u!1 &4432462597896926095
 GameObject:
   m_ObjectHideFlags: 0

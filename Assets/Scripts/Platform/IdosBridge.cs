@@ -9,7 +9,8 @@ using UnityEngine;
 /// передаёт счёт в window.BloodySteakHost. Вне оболочки (редактор, билд без iDos) — ничего не делает.
 ///
 /// JS → C#: оболочка ставит игру на паузу, когда игрок уходит в лобби, через
-/// SendMessage("IdosBridge", "OnHostSuspend" / "OnHostResume"). Для этого объект с этим именем
+/// SendMessage("IdosBridge", "OnHostSuspend" / "OnHostResume") и надевает купленный скин через
+/// SendMessage("IdosBridge", "OnHostSetSkin", skinId). Для этого объект с этим именем
 /// создаётся сам при старте и живёт между сценами.
 /// </summary>
 public class IdosBridge : MonoBehaviour
@@ -51,6 +52,9 @@ public class IdosBridge : MonoBehaviour
         Time.timeScale = 0f;
         AudioListener.pause = true;
     }
+
+    /// <summary>Оболочка прислала надетый скин (id из IdosWeb/src/shared/skins.ts; "default" — без скина).</summary>
+    private void OnHostSetSkin(string skinId) => PlayerSkinSelection.Set(skinId);
 
     private void OnHostResume()
     {

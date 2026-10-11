@@ -20,6 +20,7 @@ platform — do not edit by hand.
 <!-- idos:modules:start -->
 
 - `bloody-steak` (0.1.0) — src/modules/bloody-steak/ (own module: the Unity build)
+- `skins` (0.1.0) — src/modules/skins/ (own module: skins shop)
 - `leaderboard` (0.1.1) — src/modules/leaderboard/
 - `profile` (0.1.3) — src/modules/profile/
 <!-- idos:modules:end -->

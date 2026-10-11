@@ -6,7 +6,7 @@ export default defineAppConfig({
   // Bloody Steak takes the whole screen: sign-in → the lobby (leaderboard, profile) → "Play".
   start: "lobby",
   lobby: {
-    order: ["play", "leaderboard"],
+    order: ["play", "skins", "leaderboard"],
   },
   auth: {
     // "Play as guest" — a device account with no e-mail or wallet.

@@ -41,7 +41,13 @@ function loadScript(src: string): Promise<void> {
   });
 }
 
-export function createUnityScene(): EngineScene & { state(): UnitySceneState } {
+/**
+ * @param currentSkin — the skin the player has equipped right now; sent to the game when it has
+ * loaded and every time it comes back on screen (IdosBridge.OnHostSetSkin).
+ */
+export function createUnityScene(
+  currentSkin: () => string,
+): EngineScene & { state(): UnitySceneState; setSkin(skinId: string): void } {
   let instance: UnityInstance | null = null;
   let canvas: HTMLCanvasElement | null = null;
   let resolveReady: () => void = () => {};
@@ -52,6 +58,7 @@ export function createUnityScene(): EngineScene & { state(): UnitySceneState } {
   // steps out to the lobby does not come back to failed orders.
   const send = (method: "OnHostSuspend" | "OnHostResume") =>
     instance?.SendMessage("IdosBridge", method);
+  const setSkin = (skinId: string) => instance?.SendMessage("IdosBridge", "OnHostSetSkin", skinId);
 
   return {
     surface: "fullbleed-canvas",
@@ -92,6 +99,7 @@ export function createUnityScene(): EngineScene & { state(): UnitySceneState } {
             (p) => (state.progress = p),
           );
           state.loaded = true;
+          setSkin(currentSkin());
           canvas!.focus();
           if (!state.active) send("OnHostSuspend");
         } catch (e) {
@@ -107,6 +115,7 @@ export function createUnityScene(): EngineScene & { state(): UnitySceneState } {
 
     activate() {
       state.active = true;
+      setSkin(currentSkin());
       send("OnHostResume");
       canvas?.focus();
     },
@@ -127,5 +136,6 @@ export function createUnityScene(): EngineScene & { state(): UnitySceneState } {
     },
 
     state: () => ({ ...state }),
+    setSkin,
   };
 }

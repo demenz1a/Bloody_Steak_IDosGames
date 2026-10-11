@@ -28,6 +28,10 @@ public class CookingStation : MonoBehaviour, IInteractable
     [Header("Effects")]
     [SerializeField] private ParticleSystem cookingParticles;
 
+    [Header("Sound")]
+    [Tooltip("Звук, который играет, пока продукт на станции: шипение для гриля и шампуров, Grinder для мясорубки.")]
+    [SerializeField] private SoundId cookingLoop = SoundId.Sizzle;
+
     [Header("Shake (если нет ParticleSystem)")]
     [SerializeField] private float shakeAmplitude = 0.03f;
     [SerializeField] private float shakeSpeed = 25f;
@@ -99,6 +103,8 @@ public class CookingStation : MonoBehaviour, IInteractable
         {
             cookingParticles.Play();
         }
+
+        SoundManager.StartLoop(cookingLoop, this); // звучит, пока продукт на станции и не сгорел
     }
 
     private void ResetStation()
@@ -115,6 +121,7 @@ public class CookingStation : MonoBehaviour, IInteractable
         }
 
         transform.localPosition = _originalPosition;
+        SoundManager.StopLoop(this);
     }
 
     private void Update()
@@ -144,6 +151,7 @@ public class CookingStation : MonoBehaviour, IInteractable
             _phase = stages[_currentStageIndex].isServable
                 ? StationPhase.ReadyToServe
                 : StationPhase.Cooking;
+            if (_phase == StationPhase.ReadyToServe) SoundManager.Play(SoundId.FoodReady);
         }
 
         float lastStageTime = stages[stages.Length - 1].timeToReach;
@@ -153,6 +161,8 @@ public class CookingStation : MonoBehaviour, IInteractable
             _phase = StationPhase.Burnt;
             var product = holdPoint.CurrentItem as Product;
             product?.SetType(ProductType.Burned);
+            SoundManager.StopLoop(this);
+            SoundManager.Play(SoundId.FoodBurnt);
             timerUI?.SetVisible(false);
             if (cookingParticles != null)
             {

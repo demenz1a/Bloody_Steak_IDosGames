@@ -68,8 +68,8 @@ public class NpcCustomer : MonoBehaviour, IInteractable
     [Header("Panic")]
     [Tooltip("Радиус скана свидетелей в момент убийства (см. PanicManager.ScanForWitnesses).")]
     [SerializeField] private float killWitnessScanRadius = 4f;
-    [Tooltip("Во сколько раз ускоряется NPC, убегая в панике.")]
-    [SerializeField] private float panicSpeedMultiplier = 1.8f;
+    [Tooltip("Во сколько раз ускоряется NPC, убегая в панике (скорость и разгон агента).")]
+    [SerializeField] private float panicSpeedMultiplier = 2.6f;
 
     [Header("Physics")]
     [Tooltip("Если на NPC есть Rigidbody2D — его нужно выключить при смерти, иначе Dynamic-тело " +
@@ -91,6 +91,8 @@ public class NpcCustomer : MonoBehaviour, IInteractable
     private float _stateTimer;
     private float _baseVisualScaleX;
     private float _baseAgentSpeed;
+    private float _baseAgentAcceleration;
+    private bool _raisesAlarmOnEscape;
     private PlayerMovement _carriedByMovement;
 
     /// <summary>
@@ -111,6 +113,7 @@ public class NpcCustomer : MonoBehaviour, IInteractable
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
         _baseAgentSpeed = _agent.speed;
+        _baseAgentAcceleration = _agent.acceleration;
 
         if (!avoidOtherCustomers)
         {
@@ -219,7 +222,11 @@ public class NpcCustomer : MonoBehaviour, IInteractable
 
             case NpcState.AtToilet:
                 _stateTimer -= Time.deltaTime;
-                if (_stateTimer <= 0f) EnterMovingToExit();
+                if (_stateTimer <= 0f)
+                {
+                    SoundManager.Play(SoundId.ToiletFlush);
+                    EnterMovingToExit();
+                }
                 break;
 
             case NpcState.MovingToExit:
@@ -227,11 +234,7 @@ public class NpcCustomer : MonoBehaviour, IInteractable
                 break;
 
             case NpcState.Panicking:
-                if (HasArrived())
-                {
-                    PanicManager.Instance.UnregisterPanic(this);
-                    Destroy(gameObject);
-                }
+                if (HasArrived()) EscapeRestaurant();
                 break;
         }
     }
@@ -468,6 +471,7 @@ public class NpcCustomer : MonoBehaviour, IInteractable
         //headSprite.sprite = headSpriteDead;
         player.PlayKillAnimation();
         if (animator != null) animator.SetTrigger(deadTrigger);
+        SoundManager.Play(SoundId.NpcDeathScream);
 
         // Труп дальше двигает только родитель (игрок после подбора) — агент больше не нужен
         // и его стоит отключить, чтобы он не пытался "поправить" позицию поверх переноса.
@@ -485,8 +489,10 @@ public class NpcCustomer : MonoBehaviour, IInteractable
 
         _state = NpcState.Dead;
 
-        // До скана свидетелей: он может сразу закончить игру (полиция), а очки за убийство
-        // должны успеть начислиться до подсчёта итога.
+        // Убитый беглец больше не паникует: иначе шкала паники и музыка паники остались бы навсегда.
+        if (wasPanicking) PanicManager.Instance.UnregisterPanic(this);
+
+        // До скана свидетелей: новые паникующие появятся уже после начисления очков за это убийство.
         Killed?.Invoke(this, wasPanicking);
 
         // Скан свидетелей: все NPC с зоной паники в радиусе мгновенно впадают в панику.
@@ -514,26 +520,26 @@ public class NpcCustomer : MonoBehaviour, IInteractable
         ReleaseAllReservedPoints();
 
         _agent.speed = _baseAgentSpeed * panicSpeedMultiplier;
+        // Без этого агент разгонялся бы до новой скорости секунды — бегство выглядело бы вялым.
+        _agent.acceleration = _baseAgentAcceleration * panicSpeedMultiplier;
         if (animator != null) animator.SetTrigger(panicTrigger);
 
         _state = NpcState.Panicking;
         _agent.SetDestination(_exitPoint.position);
 
-        PanicManager.Instance.RegisterPanic(this, severity);
+        // Свидетель убийства бежит поднимать тревогу: если добежит до выхода — игрок проиграл
+        // (см. Update, NpcState.Panicking). Догнать и убить его по дороге — единственный шанс.
+        _raisesAlarmOnEscape = severity == PanicSeverity.WitnessedKill;
 
-        if (severity == PanicSeverity.WitnessedKill)
-        {
-            CallPolice();
-        }
+        PanicManager.Instance.RegisterPanic(this, severity);
     }
 
-    /// <summary>
-    /// Временно: свидетель убийства сразу заканчивает игру поражением.
-    /// Позже здесь будет вызов полицейского, а геймовер — после его анимации.
-    /// </summary>
-    private void CallPolice()
+    /// <summary>Паникующий клиент дошёл до выхода и покинул ресторан.</summary>
+    private void EscapeRestaurant()
     {
-        GameOverManager.Instance?.TriggerGameOver(GameOverReason.CaughtByPolice);
+        PanicManager.Instance.UnregisterPanic(this);
+        if (_raisesAlarmOnEscape) GameOverManager.Instance?.TriggerGameOver(GameOverReason.WitnessEscaped);
+        Destroy(gameObject);
     }
 
     // ---- Подбор трупа (п. 13.3, уточнение: теперь по отдельному нажатию, не автоматически) ----

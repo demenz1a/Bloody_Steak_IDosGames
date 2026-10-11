@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a356957a176beb479c9e485a9f5c504, type: 3}
+  m_Name: LanternSkin
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSkin
+  skinId: lantern
+  displayName: Lantern
+  swaps:
+  - original: {fileID: 6943535168657398750, guid: cdb890e4a4258c94b8044f332f63a54e, type: 3}
+    replacement: {fileID: -1154855734, guid: f435c7a8c732b0b49b364d6edf642b09, type: 3}
+  - original: {fileID: -6834524911116659543, guid: b5075705081559348937f10350ae29ef, type: 3}
+    replacement: {fileID: -1385560715, guid: ad5c4e7ba74ba4f4fb55888546d37c5e, type: 3}
+  - original: {fileID: 1368413106863272610, guid: 08b1f33611d73a64badc6f06389ecd97, type: 3}
+    replacement: {fileID: 409454664, guid: 0bf45464d1f53074ea05de131f230ac1, type: 3}
+  - original: {fileID: 5800173839196415397, guid: 95b89ae28ab89e0459c31f0b4fbbc10e, type: 3}
+    replacement: {fileID: 1665286036, guid: fc4ac33364a1f1b46a53c461510509a1, type: 3}
+  - original: {fileID: -7687307636189039108, guid: 9ae20c621c8446d458832f5c04f8a4e5, type: 3}
+    replacement: {fileID: -909851527, guid: 1be5270a79c0757418f53c04b765c866, type: 3}
+  - original: {fileID: -8222877691690482927, guid: 846a2432efaded548b54ab47d0e59471, type: 3}
+    replacement: {fileID: -1463271512, guid: 37d27cb54af850242837a6dc4d7f4836, type: 3}
+  - original: {fileID: -1635775750, guid: 99d9cfb4e23f8ba42bc919bffe018a7d, type: 3}
+    replacement: {fileID: 1937567195, guid: 5b40ab4802a5a2145b01c61dfb0c4406, type: 3}
+  - original: {fileID: 505878037, guid: 99d9cfb4e23f8ba42bc919bffe018a7d, type: 3}
+    replacement: {fileID: 1846960230, guid: 5b40ab4802a5a2145b01c61dfb0c4406, type: 3}
+  - original: {fileID: 1881613121373718890, guid: 8ea63032ccc40cc478b830929feec703, type: 3}
+    replacement: {fileID: 1600888236, guid: 76a6af23cd39ee843aaf237151514453, type: 3}
+  - original: {fileID: -557430140217975604, guid: 8ea63032ccc40cc478b830929feec703, type: 3}
+    replacement: {fileID: 1379273370, guid: 76a6af23cd39ee843aaf237151514453, type: 3}
+  - original: {fileID: -4442034026943016851, guid: f9d315b017019de48a2a6ed15890d65b, type: 3}
+    replacement: {fileID: -2059538648, guid: 25467966039caa24b87dd5a17f976cdc, type: 3}
+  - original: {fileID: 1423847148088217151, guid: 8ecf71272b2ee104f852d2ad578c24d7, type: 3}
+    replacement: {fileID: -471114316, guid: fd2256cba690f8247a5a6eaba3721654, type: 3}
+  chefSwaps:
+  - original: {fileID: -7687307636189039108, guid: 9ae20c621c8446d458832f5c04f8a4e5, type: 3}
+    replacement: {fileID: -911099, guid: 7f5b7966d8694d84387c0337eb8d984c, type: 3}
+  - original: {fileID: -8222877691690482927, guid: 846a2432efaded548b54ab47d0e59471, type: 3}
+    replacement: {fileID: -1128332623, guid: 691c1eed63889354384a22617e74cd5f, type: 3}

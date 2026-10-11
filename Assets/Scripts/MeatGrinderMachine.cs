@@ -32,6 +32,7 @@ public class MeatGrinderMachine : MonoBehaviour, IInteractable
         _elapsed = 0f;
         timerUI?.SetVisible(true);
         particleSystem.SetActive(true);
+        SoundManager.StartLoop(SoundId.Grinder, this);
     }
 
     private void Update()
@@ -47,6 +48,7 @@ public class MeatGrinderMachine : MonoBehaviour, IInteractable
             _isProcessing = false;
             timerUI?.SetVisible(false);
             particleSystem.SetActive(false);
+            SoundManager.StopLoop(this);
         }
     }
 }

@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a356957a176beb479c9e485a9f5c504, type: 3}
+  m_Name: HalloweenSkin
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSkin
+  skinId: halloween
+  displayName: "\u0425\u0435\u043B\u043B\u043E\u0443\u0438\u043D\u0441\u043A\u0438\u0439"
+  swaps:
+  - original: {fileID: 6943535168657398750, guid: cdb890e4a4258c94b8044f332f63a54e, type: 3}
+    replacement: {fileID: -1881687135, guid: 628c6057664eedc499628542a09bd231, type: 3}
+  - original: {fileID: -6834524911116659543, guid: b5075705081559348937f10350ae29ef, type: 3}
+    replacement: {fileID: 656465157, guid: 04ffb063292d6bf48a699002280b40d5, type: 3}
+  - original: {fileID: 1368413106863272610, guid: 08b1f33611d73a64badc6f06389ecd97, type: 3}
+    replacement: {fileID: 1885448213, guid: 8091638e88b356e4c800c56d75d9e780, type: 3}
+  - original: {fileID: 5800173839196415397, guid: 95b89ae28ab89e0459c31f0b4fbbc10e, type: 3}
+    replacement: {fileID: 737201432, guid: 775ce12e3d5cd014284910c7a7a5c585, type: 3}
+  - original: {fileID: -7687307636189039108, guid: 9ae20c621c8446d458832f5c04f8a4e5, type: 3}
+    replacement: {fileID: 1533148038, guid: 6637418a103fae24382330d77bcbc484, type: 3}
+  - original: {fileID: -8222877691690482927, guid: 846a2432efaded548b54ab47d0e59471, type: 3}
+    replacement: {fileID: -1528181649, guid: f4b79da4a4088f9478bc62429765f4b4, type: 3}
+  - original: {fileID: -1635775750, guid: 99d9cfb4e23f8ba42bc919bffe018a7d, type: 3}
+    replacement: {fileID: -1514696735, guid: c05364ac2e4069e47b6567d665351c10, type: 3}
+  - original: {fileID: 505878037, guid: 99d9cfb4e23f8ba42bc919bffe018a7d, type: 3}
+    replacement: {fileID: 41800574, guid: c05364ac2e4069e47b6567d665351c10, type: 3}
+  - original: {fileID: 1881613121373718890, guid: 8ea63032ccc40cc478b830929feec703, type: 3}
+    replacement: {fileID: 962077571, guid: 1ce4aa8fa5dc8eb4baed77e126f55ba6, type: 3}
+  - original: {fileID: -557430140217975604, guid: 8ea63032ccc40cc478b830929feec703, type: 3}
+    replacement: {fileID: 158534164, guid: 1ce4aa8fa5dc8eb4baed77e126f55ba6, type: 3}
+  - original: {fileID: -4442034026943016851, guid: f9d315b017019de48a2a6ed15890d65b, type: 3}
+    replacement: {fileID: -1757782816, guid: 4aa53ff3213ae314288530f9671f5883, type: 3}
+  - original: {fileID: 1423847148088217151, guid: 8ecf71272b2ee104f852d2ad578c24d7, type: 3}
+    replacement: {fileID: -1837050836, guid: 8626f733e71eaec40a3f5d3c21579e62, type: 3}
+  chefSwaps:
+  - original: {fileID: -7687307636189039108, guid: 9ae20c621c8446d458832f5c04f8a4e5, type: 3}
+    replacement: {fileID: 1281024923, guid: d89ba038f3a90744dae00c9daef656fe, type: 3}
+  - original: {fileID: -8222877691690482927, guid: 846a2432efaded548b54ab47d0e59471, type: 3}
+    replacement: {fileID: -688226877, guid: 5feeff5583e544d49b9d629dba97e3b7, type: 3}
