@@ -15159,7 +15159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1d757c642fe1b41b5ac7ea08474b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MatchTimer
-  matchDuration: 120
+  matchDuration: 180
 --- !u!114 &753396069
 MonoBehaviour:
   m_ObjectHideFlags: 0

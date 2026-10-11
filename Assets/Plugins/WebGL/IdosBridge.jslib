@@ -5,8 +5,8 @@ mergeInto(LibraryManager.library, {
     var host = window.BloodySteakHost;
     if (host && typeof host.submitScore === "function") host.submitScore(score);
   },
-  IdosBridge_ReportVictory: function () {
+  IdosBridge_ReportVictory: function (coins) {
     var host = window.BloodySteakHost;
-    if (host && typeof host.reportVictory === "function") host.reportVictory();
+    if (host && typeof host.reportVictory === "function") host.reportVictory(coins);
   },
 });

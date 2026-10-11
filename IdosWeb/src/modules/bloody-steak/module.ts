@@ -8,13 +8,20 @@ const skinEquipped = defineTopic("skins:equipped@1", shape({ skinId: "string" })
 
 /** Leaderboard of the best shift score (title config: Leaderboard.Definitions.best_score, 12-hour cycles; #1 gets 100 BloodyCoin). */
 export const LEADERBOARD_ID = "best_score";
-/** Reward for a won shift (title config: Reward.Claims.shift_victory — 20 BloodyCoin, server-side rate limits). */
-export const VICTORY_CLAIM_ID = "shift_victory";
+/**
+ * BloodyCoin for a won shift. claimReward pays a fixed amount, so the game's number (0..60) is paid as a
+ * sum of denominations: title config Reward.Claims.shift_coin_{1,2,4,8,16,32}, each with its own server
+ * rate limit (once a minute, 5 per day) — so a day can never pay more than 5 × 63.
+ */
+export const COIN_DENOMINATIONS = [32, 16, 8, 4, 2, 1] as const;
+export const MAX_COINS_PER_SHIFT = 60;
+/** The SDK rejects the same endpoint fired again within ~600 ms ("throttled"). */
+const CLAIM_SPACING_MS = 700;
 
 declare global {
   interface Window {
     /** What the Unity build calls through Assets/Plugins/WebGL/IdosBridge.jslib. */
-    BloodySteakHost?: { submitScore(score: number): void; reportVictory(): void };
+    BloodySteakHost?: { submitScore(score: number): void; reportVictory(coins: number): void };
   }
 }
 
@@ -54,17 +61,35 @@ export const bloodySteakModule: Module = defineModule({
       });
     };
 
-    // The server decides whether the win pays (cooldown 5 min, at most 5 per day); a refusal is normal.
-    const reportVictory = async () => {
-      const res = await ctx.client.reward.claimReward(VICTORY_CLAIM_ID);
-      if (!res.ok) {
+    // The game reports how many BloodyCoin the shift earned (money / 10, at most 60); it is paid as
+    // denominations, one claim each. The server limits every denomination; a refusal is normal.
+    let paying = false;
+    const reportVictory = async (coins: number) => {
+      let left = Math.max(0, Math.min(MAX_COINS_PER_SHIFT, Math.floor(Number(coins) || 0)));
+      if (left === 0 || paying) return;
+      paying = true;
+      let paid = 0;
+      let refused = false;
+      try {
+        for (const value of COIN_DENOMINATIONS) {
+          if (value > left) continue;
+          if (paid > 0 || refused) await new Promise((r) => setTimeout(r, CLAIM_SPACING_MS));
+          const res = await ctx.client.reward.claimReward(`shift_coin_${value}`);
+          if (res.ok) paid += value;
+          else refused = true;
+          left -= value;
+        }
+      } finally {
+        paying = false;
+      }
+      if (paid === 0) {
         ctx.notifications.toast({ level: "info", message: t("victoryLimit"), key: "victory-reward" });
         return;
       }
       ctx.notifications.toast({
         level: "reward",
         title: t("victoryReward"),
-        message: "+300 BloodyCoin", // ТЕСТ: в тайтле временно 300 (обычно 20)
+        message: `+${paid} BloodyCoin`,
         icon: "gift",
         key: "victory-reward",
       });
@@ -73,7 +98,7 @@ export const bloodySteakModule: Module = defineModule({
     ctx.effect(() => {
       window.BloodySteakHost = {
         submitScore: (score) => void submitScore(score),
-        reportVictory: () => void reportVictory(),
+        reportVictory: (coins) => void reportVictory(coins),
       };
       return () => {
         delete window.BloodySteakHost;
@@ -93,12 +118,13 @@ export const bloodySteakModule: Module = defineModule({
       }),
       actions: {
         submitScore: (args) => submitScore(Number(args?.score ?? 0)),
-        reportVictory: () => reportVictory(),
+        reportVictory: (args) => reportVictory(Number(args?.coins ?? 0)),
       },
       describeActions: {
         submitScore:
           "submitScore({ score: number }) — submit a shift score exactly as the Unity build does at the end of a shift.",
-        reportVictory: "reportVictory() — claim the shift_victory reward exactly as the Unity build does after a won shift.",
+        reportVictory:
+          "reportVictory({ coins: number }) — pay a won shift's BloodyCoin (0..60) as shift_coin_* denominations, exactly as the Unity build does.",
       },
     });
   },

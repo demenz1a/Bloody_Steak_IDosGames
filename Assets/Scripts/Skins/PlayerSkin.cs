@@ -32,6 +32,9 @@ public class PlayerSkin : ScriptableObject
     // показывают кадры в позе повара: Chest и руки стоят под базовое тело повара (другой прямоугольник
     // спрайта, pivot ниже на ~250 px холста, руки подняты). На эти кадры сдвиги ниже (локальные единицы,
     // текстуры ужаты до 2048, т.е. 1 ед. ≈ 127 px холста) возвращают взаимное расположение формы волка.
+    [Tooltip("Сдвиг головы в обеих формах, в локальных единицах (например, поднять голову скина повыше).")]
+    [SerializeField] private Vector2 headOffset = Vector2.zero;
+
     [Header("Форма повара: сдвиги поверх анимации")]
     [Tooltip("Сдвиг Chest (вместе с руками).")]
     [SerializeField] private Vector2 chefChestOffset = new Vector2(0.57f, -0.74f);
@@ -45,6 +48,7 @@ public class PlayerSkin : ScriptableObject
 
     public string SkinId => skinId;
     public string DisplayName => displayName;
+    public Vector2 HeadOffset => headOffset;
     public Vector2 ChefChestOffset => chefChestOffset;
     public Vector2 ChefLeftArmOffset => chefLeftArmOffset;
     public Vector2 ChefRightArmOffset => chefRightArmOffset;

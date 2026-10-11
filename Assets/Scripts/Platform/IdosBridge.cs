@@ -19,7 +19,7 @@ public class IdosBridge : MonoBehaviour
 
 #if UNITY_WEBGL && !UNITY_EDITOR
     [DllImport("__Internal")] private static extern void IdosBridge_SubmitScore(int score);
-    [DllImport("__Internal")] private static extern void IdosBridge_ReportVictory();
+    [DllImport("__Internal")] private static extern void IdosBridge_ReportVictory(int coins);
 #endif
 
     private float _timeScaleBeforeSuspend = 1f;
@@ -43,14 +43,14 @@ public class IdosBridge : MonoBehaviour
     }
 
     /// <summary>
-    /// Смена выиграна: оболочка запрашивает награду shift_victory (20 BloodyCoin).
-    /// Сервер сам ограничивает частоту (раз в 5 минут, 5 в сутки) — игра ничего не начисляет.
+    /// Смена выиграна, заработано coins BloodyCoin: оболочка набирает эту сумму наградами-номиналами
+    /// shift_coin_1..32. Сервер ограничивает каждую номиналом-награду по частоте — игра ничего не начисляет.
     /// </summary>
-    public static void ReportVictory()
+    public static void ReportVictory(int coins)
     {
-        Debug.Log("[IdosBridge] ReportVictory()");
+        Debug.Log($"[IdosBridge] ReportVictory({coins})");
 #if UNITY_WEBGL && !UNITY_EDITOR
-        IdosBridge_ReportVictory();
+        IdosBridge_ReportVictory(coins);
 #endif
     }
 

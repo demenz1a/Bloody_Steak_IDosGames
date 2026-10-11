@@ -31,8 +31,10 @@ public class PlayerSkinApplier : MonoBehaviour
     [SerializeField] private Transform leftArm;
     [Tooltip("Правая рука (PlayerSkin.ChefRightArmOffset). Пусто — ребёнок с именем RightHand.")]
     [SerializeField] private Transform rightArm;
-    [Tooltip("Голова: со скином она рисуется поверх всех частей тела. Пусто — ребёнок с именем Head.")]
+    [Tooltip("Голова: со скином она рисуется поверх всех частей тела (кроме transitionRenderers). Пусто — ребёнок с именем Head.")]
     [SerializeField] private SpriteRenderer head;
+    [Tooltip("Эффекты смены формы: со скином рисуются ещё выше головы. Пусто — дети с именами Transition и Transition2.")]
+    [SerializeField] private SpriteRenderer[] transitionRenderers;
     [Tooltip("Только для проверки в редакторе: надеть этот скин вместо выбранного в оболочке.")]
     [SerializeField] private string editorPreviewSkinId;
 
@@ -59,9 +61,9 @@ public class PlayerSkinApplier : MonoBehaviour
     private readonly OffsetSlot _chestSlot = new OffsetSlot();
     private readonly OffsetSlot _leftArmSlot = new OffsetSlot();
     private readonly OffsetSlot _rightArmSlot = new OffsetSlot();
-    private int _headWrittenOrder;
-    private int _headBaseOrder;
-    private bool _headOverridden;
+    private readonly OffsetSlot _headSlot = new OffsetSlot();
+    private SortingSlot _headSorting;
+    private SortingSlot[] _transitionSorting;
 
     private void Awake()
     {
@@ -80,6 +82,22 @@ public class PlayerSkinApplier : MonoBehaviour
             var headTransform = FindChild(transform, "Head");
             if (headTransform != null) head = headTransform.GetComponent<SpriteRenderer>();
         }
+        if (head != null) _headSlot.target = head.transform;
+        _headSorting = new SortingSlot { renderer = head };
+
+        if (transitionRenderers == null || transitionRenderers.Length == 0)
+        {
+            var found = new List<SpriteRenderer>();
+            foreach (var name in new[] { "Transition", "Transition2" })
+            {
+                var t = FindChild(transform, name);
+                var r = t != null ? t.GetComponent<SpriteRenderer>() : null;
+                if (r != null) found.Add(r);
+            }
+            transitionRenderers = found.ToArray();
+        }
+        _transitionSorting = new SortingSlot[transitionRenderers.Length];
+        for (int i = 0; i < transitionRenderers.Length; i++) _transitionSorting[i] = new SortingSlot { renderer = transitionRenderers[i] };
 
         if (animator == null) animator = GetComponentInChildren<Animator>(true);
         if (animator != null) _baseController = animator.runtimeAnimatorController;
@@ -224,7 +242,8 @@ public class PlayerSkinApplier : MonoBehaviour
         _chestSlot.Apply(shift ? (Vector3)_skin.ChefChestOffset : Vector3.zero);
         _leftArmSlot.Apply(shift ? (Vector3)_skin.ChefLeftArmOffset : Vector3.zero);
         _rightArmSlot.Apply(shift ? (Vector3)_skin.ChefRightArmOffset : Vector3.zero);
-        ApplyHeadOnTop(_skin != null);
+        _headSlot.Apply(_skin != null ? (Vector3)_skin.HeadOffset : Vector3.zero);
+        ApplySorting(_skin != null);
     }
 
     /// <summary>
@@ -251,30 +270,77 @@ public class PlayerSkinApplier : MonoBehaviour
         }
     }
 
-    /// <summary>Со скином голова рисуется поверх всех частей тела; без скина — возвращается порядок аниматора/префаба.</summary>
-    private void ApplyHeadOnTop(bool onTop)
+    /// <summary>
+    /// Порядок отрисовки поверх аниматора: запоминаем записанное, чтобы отличить от нового значения
+    /// аниматора, и возвращаем исходный порядок, когда переопределение снято.
+    /// </summary>
+    private class SortingSlot
+    {
+        public SpriteRenderer renderer;
+        public int BaseOrder { get; private set; }
+        private int _written;
+        private bool _overridden;
+
+        public void Refresh()
+        {
+            if (renderer == null) return;
+            if (!_overridden || renderer.sortingOrder != _written) BaseOrder = renderer.sortingOrder;
+        }
+
+        public void Set(int order)
+        {
+            if (renderer == null) return;
+            renderer.sortingOrder = order;
+            _written = order;
+            _overridden = true;
+        }
+
+        public void Restore()
+        {
+            if (renderer == null || !_overridden) return;
+            renderer.sortingOrder = BaseOrder;
+            _overridden = false;
+        }
+    }
+
+    /// <summary>
+    /// Со скином голова рисуется поверх всех частей тела, а эффекты смены формы (Transition) — ещё выше
+    /// головы, в своём исходном порядке. Без скина возвращается порядок аниматора/префаба.
+    /// </summary>
+    private void ApplySorting(bool skinned)
     {
         if (head == null) return;
 
-        if (!_headOverridden || head.sortingOrder != _headWrittenOrder) _headBaseOrder = head.sortingOrder;
+        _headSorting.Refresh();
+        foreach (var t in _transitionSorting) t.Refresh();
 
-        if (!onTop)
+        if (!skinned)
         {
-            if (_headOverridden) head.sortingOrder = _headBaseOrder;
-            _headOverridden = false;
+            _headSorting.Restore();
+            foreach (var t in _transitionSorting) t.Restore();
             return;
         }
 
         int top = int.MinValue;
         foreach (var r in parts)
         {
-            if (r != null && r != head && r.sortingLayerID == head.sortingLayerID && r.sortingOrder > top) top = r.sortingOrder;
+            if (r == null || r == head || System.Array.IndexOf(transitionRenderers, r) >= 0) continue;
+            if (r.sortingLayerID == head.sortingLayerID && r.sortingOrder > top) top = r.sortingOrder;
         }
 
-        int order = top == int.MinValue ? _headBaseOrder : Mathf.Max(_headBaseOrder, top + 1);
-        head.sortingOrder = order;
-        _headWrittenOrder = order;
-        _headOverridden = true;
+        int headOrder = top == int.MinValue ? _headSorting.BaseOrder : Mathf.Max(_headSorting.BaseOrder, top + 1);
+        _headSorting.Set(headOrder);
+
+        // Transition'ы — над головой, сохраняя их взаимный порядок.
+        for (int i = 0; i < _transitionSorting.Length; i++)
+        {
+            int rank = 1;
+            for (int j = 0; j < _transitionSorting.Length; j++)
+            {
+                if (_transitionSorting[j].BaseOrder < _transitionSorting[i].BaseOrder) rank++;
+            }
+            _transitionSorting[i].Set(headOrder + rank);
+        }
     }
 
     private bool IsChefMarker(Sprite sprite)

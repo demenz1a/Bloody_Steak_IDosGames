@@ -48,6 +48,7 @@ MonoBehaviour:
     replacement: {fileID: 329033957, guid: 07fe4b337ee83a44d9a11413c8213513, type: 3}
   - original: {fileID: -8222877691690482927, guid: 846a2432efaded548b54ab47d0e59471, type: 3}
     replacement: {fileID: 1745323097, guid: f46ace0d96d16bb47933ef4c1470a392, type: 3}
+  headOffset: {x: 0, y: 0.5}
   chefChestOffset: {x: 0.57, y: -0.74}
   chefLeftArmOffset: {x: -0.51, y: 0.65}
   chefRightArmOffset: {x: -0.3, y: 1.04}

@@ -34,6 +34,8 @@ public class VictoryUI : MonoBehaviour
     [Tooltip("{0} — очки за смену, {1} — очки из денег.")]
     [SerializeField] private string breakdownFormat = "SHIFT SCORE  {0}\nMONEY BONUS  +{1}";
     [SerializeField] private string totalFormat = "TOTAL  {0}";
+    [Tooltip("Строка под разбивкой очков: {0} — BloodyCoin за смену (ScoreManager.CoinsEarned).")]
+    [SerializeField] private string coinsFormat = "\nBLOODYCOIN  +{0}";
 
     [Header("Dim")]
     [SerializeField] private float dimDuration = 0.8f;
@@ -65,7 +67,11 @@ public class VictoryUI : MonoBehaviour
 
         int total = score.Score;
         int fromMoney = score.ScoreFromMoney;
-        if (breakdownLabel != null) breakdownLabel.text = string.Format(breakdownFormat, total - fromMoney, fromMoney);
+        if (breakdownLabel != null)
+        {
+            breakdownLabel.text = string.Format(breakdownFormat, total - fromMoney, fromMoney)
+                + string.Format(coinsFormat, score.CoinsEarned);
+        }
         SetTotal(0);
 
         SetPanelVisible(0f, interactable: false);
