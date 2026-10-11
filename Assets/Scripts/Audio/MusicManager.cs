@@ -16,7 +16,7 @@ using UnityEngine;
 /// Пауза из лобби iDos (AudioListener.pause) замораживает источники, но не аудиочасы, поэтому
 /// после неё слои 2 и 3 заново выравниваются по позиции слоя 1.
 /// После победы музыка плавно затихает (GameOverManager.OnVictory), после поражения продолжает
-/// играть (keepMusicOnDefeat).
+/// играть (keepMusicOnDefeat). Пока рубильник выключил свет (LightSwitch.LightsOut), музыка молчит.
 /// </summary>
 public class MusicManager : MonoBehaviour
 {
@@ -38,6 +38,10 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private float endFadeTime = 1.5f;
     [Tooltip("На экране поражения музыка продолжает играть. Выключите, чтобы она затихала, как после победы.")]
     [SerializeField] private bool keepMusicOnDefeat = true;
+    [Tooltip("Как быстро музыка глохнет/возвращается при отключении света рубильником, сек.")]
+    [SerializeField] private float blackoutFadeTime = 0.2f;
+
+    private float _blackoutGain = 1f; // 0 — свет выключен (LightSwitch), музыка молчит, но идёт синхронно
 
     private const double StartDelay = 0.2;      // запас, чтобы все слои успели стартовать в один момент
     private const double ScheduleAhead = 0.5;   // за сколько до конца цикла планировать следующий
@@ -163,10 +167,16 @@ public class MusicManager : MonoBehaviour
             _layerVolume[layer] = Mathf.MoveTowards(_layerVolume[layer], goal, step);
         }
 
-        _master.volume = _layerVolume[0] * volume;
+        // Темнота глушит музыку громкостью, не остановкой: слои продолжают идти и не теряют синхрон.
+        float gainGoal = LightSwitch.LightsOut ? 0f : 1f;
+        _blackoutGain = Mathf.MoveTowards(_blackoutGain, gainGoal,
+            blackoutFadeTime > 0f ? Time.unscaledDeltaTime / blackoutFadeTime : 1f);
+        float master = volume * _blackoutGain;
+
+        _master.volume = _layerVolume[0] * master;
         for (int i = 0; i < 2; i++)
         {
-            foreach (var s in _followers[i]) s.volume = _layerVolume[i + 1] * volume;
+            foreach (var s in _followers[i]) s.volume = _layerVolume[i + 1] * master;
         }
     }
 

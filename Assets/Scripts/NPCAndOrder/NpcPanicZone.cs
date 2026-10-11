@@ -48,7 +48,8 @@ public class NpcPanicZone : MonoBehaviour
             return; // уже среагировал (или мёртв) — копить больше нечего
         }
 
-        bool exposedNow = _playerInZone != null && _playerInZone.Corpse.IsCarrying;
+        // В темноте (рубильник) труп в руках не видно.
+        bool exposedNow = _playerInZone != null && _playerInZone.Corpse.IsCarrying && !LightSwitch.LightsOut;
 
         if (exposedNow)
         {

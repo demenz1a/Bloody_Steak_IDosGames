@@ -6,13 +6,15 @@ import { t } from "./i18n";
 /** Copy of the skins module's topic (modules never import each other). */
 const skinEquipped = defineTopic("skins:equipped@1", shape({ skinId: "string" }));
 
-/** Leaderboard of the best shift score (title config: Leaderboard.Definitions.best_score). */
+/** Leaderboard of the best shift score (title config: Leaderboard.Definitions.best_score, 12-hour cycles; #1 gets 100 BloodyCoin). */
 export const LEADERBOARD_ID = "best_score";
+/** Reward for a won shift (title config: Reward.Claims.shift_victory — 20 BloodyCoin, server-side rate limits). */
+export const VICTORY_CLAIM_ID = "shift_victory";
 
 declare global {
   interface Window {
     /** What the Unity build calls through Assets/Plugins/WebGL/IdosBridge.jslib. */
-    BloodySteakHost?: { submitScore(score: number): void };
+    BloodySteakHost?: { submitScore(score: number): void; reportVictory(): void };
   }
 }
 
@@ -52,8 +54,27 @@ export const bloodySteakModule: Module = defineModule({
       });
     };
 
+    // The server decides whether the win pays (cooldown 5 min, at most 5 per day); a refusal is normal.
+    const reportVictory = async () => {
+      const res = await ctx.client.reward.claimReward(VICTORY_CLAIM_ID);
+      if (!res.ok) {
+        ctx.notifications.toast({ level: "info", message: t("victoryLimit"), key: "victory-reward" });
+        return;
+      }
+      ctx.notifications.toast({
+        level: "reward",
+        title: t("victoryReward"),
+        message: "+20 BloodyCoin",
+        icon: "gift",
+        key: "victory-reward",
+      });
+    };
+
     ctx.effect(() => {
-      window.BloodySteakHost = { submitScore: (score) => void submitScore(score) };
+      window.BloodySteakHost = {
+        submitScore: (score) => void submitScore(score),
+        reportVictory: () => void reportVictory(),
+      };
       return () => {
         delete window.BloodySteakHost;
       };
@@ -72,10 +93,12 @@ export const bloodySteakModule: Module = defineModule({
       }),
       actions: {
         submitScore: (args) => submitScore(Number(args?.score ?? 0)),
+        reportVictory: () => reportVictory(),
       },
       describeActions: {
         submitScore:
           "submitScore({ score: number }) — submit a shift score exactly as the Unity build does at the end of a shift.",
+        reportVictory: "reportVictory() — claim the shift_victory reward exactly as the Unity build does after a won shift.",
       },
     });
   },

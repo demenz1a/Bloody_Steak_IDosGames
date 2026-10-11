@@ -84,7 +84,7 @@ public static class SoundSetup
     /// Клипы каждого SoundId = все аудиофайлы в Assets/Audio/&lt;SoundId&gt;/ (например Assets/Audio/Footstep/).
     /// Строки без папки не трогаются, поэтому то, что назначено руками, не теряется.
     /// </summary>
-    private static void AssignClipsFromFolders()
+    internal static void AssignClipsFromFolders()
     {
         var manager = Object.FindFirstObjectByType<SoundManager>();
         if (manager == null)

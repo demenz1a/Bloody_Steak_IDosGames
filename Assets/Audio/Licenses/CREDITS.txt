@@ -7,7 +7,7 @@ SheepBleat/sheep_baa.ogg        OpenGameArt — Sheep Baa (AntumDeluge) https://
 ClockTick/clock-1.ogg           OpenGameArt — Ticking Clock (AntumDeluge) https://opengameart.org/content/ticking-clock-0          CC0
 KillRaise/drawKnife*.ogg        Kenney — RPG Audio                   https://opengameart.org/content/50-rpg-sound-effects       CC0
 Footstep, BodyFall, Trash, Spotted   Kenney — Impact Sounds          https://kenney.nl/assets/impact-sounds                     CC0
-AttemptLost, OrderDelivered, FoodReady, FoodBurnt   Kenney — Interface Sounds   https://kenney.nl/assets/interface-sounds   CC0
+AttemptLost, OrderDelivered, FoodReady, FoodBurnt, LightSwitch   Kenney — Interface Sounds   https://kenney.nl/assets/interface-sounds   CC0
 Defeat, Victory                 Kenney — Music Jingles               https://kenney.nl/assets/music-jingles                     CC0
 DoorBell/shop_doorbell_chime.mp3   BigSoundBank — Shop doorbell chime   https://bigsoundbank.com/shop-doorbell-chime-s3588.html  CC0
 ToiletFlush/flush_5.mp3         BigSoundBank — Flush #5              https://bigsoundbank.com/flush-5-s2610.html                CC0

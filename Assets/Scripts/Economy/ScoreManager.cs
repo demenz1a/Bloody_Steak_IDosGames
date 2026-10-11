@@ -62,6 +62,7 @@ public class ScoreManager : MonoBehaviour
         ScoreFromMoney = money != null ? money.TakeAll() * moneyToScoreRate : 0;
         Add(ScoreFromMoney);
         IdosBridge.SubmitScore(Score);
+        IdosBridge.ReportVictory(); // награда за победу (shift_victory) — на стороне iDos
     }
 
     private void HandleGameOver(GameOverReason reason) => IdosBridge.SubmitScore(Score);

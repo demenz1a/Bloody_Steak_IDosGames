@@ -15,12 +15,13 @@ public enum DeliveryResult
 ///
 /// Два раздельных понятия:
 /// - _pendingCustomers — очередь NPC, которые УЖЕ стоят на точке заказа и хотят заказать,
-///   но реальный Order для них ещё не создан (либо все 3 слота заняты, либо игрок не в форме Sheep).
+///   но реальный Order для них ещё не создан (все maxActiveOrders слотов заняты).
 /// - _activeOrders — реальные заказы с таймером, максимум maxActiveOrders штук (п. 7.1/7.2).
 ///
+/// Заказ создаётся, как только клиент подошёл к точке заказа и есть свободный слот, в любой
+/// форме игрока (раньше — только в форме Sheep; изменено по решению автора).
 /// Таймеры считаются с масштабом от текущей формы игрока (п. 7.4): на кухне x1,
 /// в форме волка — сильно медленнее (wolfTimeScale), но не останавливаются полностью.
-/// Переход в форму Sheep дополнительно пытается разгрести очередь ожидания (п. 9.3/9.5).
 /// </summary>
 public class OrderManager : MonoBehaviour
 {
@@ -58,24 +59,14 @@ public class OrderManager : MonoBehaviour
     /// <summary>Попытки закончились. Слушает GameOverManager.</summary>
     public event Action OnGameOver;
 
-    private void OnEnable() => playerForm.OnFormChanged += HandleFormChanged;
-    private void OnDisable() => playerForm.OnFormChanged -= HandleFormChanged;
-
-    private void HandleFormChanged(PlayerForm newForm)
-    {
-        // Возврат на кухню — шанс наконец создать заказы тем, кто уже стоит в очереди.
-        if (newForm == PlayerForm.Sheep) TryDequeuePendingCustomers();
-    }
-
     /// <summary>
     /// Вызывается NPC, когда он дошёл до точки заказа и готов сделать заказ (п. 9.3).
-    /// Заказ создаётся НЕ сразу — только если есть свободный слот И игрок сейчас на кухне.
+    /// Заказ создаётся сразу, если есть свободный слот (форма игрока не важна), иначе клиент ждёт в очереди.
     /// </summary>
     public void RequestOrder(NpcCustomer customer)
     {
         _pendingCustomers.Enqueue(customer);
-
-        if (playerForm.IsSheep) TryDequeuePendingCustomers();
+        TryDequeuePendingCustomers();
     }
 
     private void TryDequeuePendingCustomers()

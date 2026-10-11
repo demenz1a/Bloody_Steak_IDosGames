@@ -82,9 +82,12 @@ public class PanicManager : MonoBehaviour
     /// <summary>
     /// Скан радиуса вокруг места убийства: все NPC с зоной паники в радиусе мгновенно
     /// впадают в панику как свидетели убийства — без накопления, в отличие от экспозиции трупа.
+    /// Пока свет выключен рубильником (LightSwitch.LightsOut), свидетелей нет.
     /// </summary>
     public void ScanForWitnesses(Vector2 killPosition, float radius, NpcCustomer excludeVictim)
     {
+        if (LightSwitch.LightsOut) return; // в темноте убийства никто не видит
+
         var hits = Physics2D.OverlapCircleAll(killPosition, radius, panicZoneMask);
 
         foreach (var hit in hits)

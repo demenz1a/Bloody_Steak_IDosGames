@@ -23,7 +23,8 @@ public enum SoundId
     // Новые звуки — только в конец: id хранится в сцене числом.
     DoorBell,        // клиент вошёл (NpcSpawner)
     ToiletFlush,     // клиент вышел из туалета (NpcCustomer)
-    NpcDeathScream   // предсмертный крик барана (NpcCustomer.Kill)
+    NpcDeathScream,  // предсмертный крик барана (NpcCustomer.Kill)
+    LightSwitch      // щелчок рубильника (LightSwitch)
 }
 
 /// <summary>
