@@ -153,8 +153,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8449917648532b41b4d3e13bbe35492
+      spriteID: e79ed63397512d84f9e0182f62db88ae
       internalID: 1885448213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chef_head_head_0
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1462
+        width: 996
+        height: 1025
+      alignment: 9
+      pivot: {x: 0.57028115, y: 0.47512195}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08b1948af07440e488a72046ce478196
+      internalID: 814369187
       vertices: []
       indices: 
       edges: []
@@ -174,6 +196,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       chef_head_SheepCookHead_0: 1885448213
+      chef_head_head_0: 814369187
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

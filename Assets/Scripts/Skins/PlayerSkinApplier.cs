@@ -1,7 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Надевает на игрока выбранный скин (PlayerSkinSelection), не трогая анимации.
+/// Надевает на игрока выбранный скин (PlayerSkinSelection).
 ///
 /// Аниматор каждый кадр ставит частям тела базовые спрайты (в т.ч. меняет голову и тело
 /// при смене формы). В LateUpdate, уже после него, компонент подменяет базовый спрайт
@@ -9,9 +10,14 @@ using UnityEngine;
 /// от "это наша же подмена с прошлого кадра", для каждого рендерера запоминается
 /// и базовый спрайт, и поставленная замена.
 ///
-/// Форма повара определяется не по PlayerFormController, а по тому, что сейчас показывает
-/// тело (chefMarkers — базовые спрайты головы/тела повара): так руки повара меняются ровно
-/// в кадр анимации смены формы, а не раньше неё.
+/// Скины нарисованы под позу волка, поэтому со скином форма повара играет стойку и ходьбу
+/// волка: аниматор получает AnimatorOverrideController, где клипы повара (chefIdleClips,
+/// chefWalkClips) заменены на клипы волка. Спрайты волка в форме повара заменяются на
+/// поварские спрайты скина, нарезанные по прямоугольникам волка (chefSwaps скина).
+///
+/// Форма повара — это состояния аниматора chefStates или кадры, где тело показывает базовые
+/// спрайты повара (chefMarkers, анимации смены формы). В таких кадрах части стоят в позе
+/// повара, и для них остаются сдвиги PlayerSkin.ChefChestOffset/руки.
 /// </summary>
 public class PlayerSkinApplier : MonoBehaviour
 {
@@ -30,9 +36,23 @@ public class PlayerSkinApplier : MonoBehaviour
     [Tooltip("Только для проверки в редакторе: надеть этот скин вместо выбранного в оболочке.")]
     [SerializeField] private string editorPreviewSkinId;
 
+    [Header("Скин в форме повара: анимации волка")]
+    [Tooltip("Аниматор модельки. Пусто — первый Animator в детях.")]
+    [SerializeField] private Animator animator;
+    [Tooltip("Состояния аниматора, в которых игрок в форме повара.")]
+    [SerializeField] private string[] chefStates = { "SheepCookAFK", "SheepCookWalk" };
+    [Tooltip("Клипы стойки повара: со скином заменяются пустым клипом — как стойка волка (WolfKillerAFK без клипа).")]
+    [SerializeField] private string[] chefIdleClips = { "SheepCookAFK" };
+    [Tooltip("Клипы ходьбы повара: со скином заменяются на wolfWalkClip.")]
+    [SerializeField] private string[] chefWalkClips = { "SheepCookWalk", "SheepCookWalking" };
+    [SerializeField] private string wolfWalkClip = "WolfKillerWalk";
+
     private Sprite[] _base;
     private Sprite[] _applied;
     private PlayerSkin _skin;
+    private RuntimeAnimatorController _baseController;
+    private AnimatorOverrideController _skinController;
+    private int[] _chefStateHashes;
 
     // Сдвиги частей и порядок головы ставятся поверх аниматора тем же способом, что и спрайты:
     // запоминаем, что записали сами, чтобы отличить это от нового значения аниматора.
@@ -60,6 +80,87 @@ public class PlayerSkinApplier : MonoBehaviour
             var headTransform = FindChild(transform, "Head");
             if (headTransform != null) head = headTransform.GetComponent<SpriteRenderer>();
         }
+
+        if (animator == null) animator = GetComponentInChildren<Animator>(true);
+        if (animator != null) _baseController = animator.runtimeAnimatorController;
+        _chefStateHashes = new int[chefStates.Length];
+        for (int i = 0; i < chefStates.Length; i++) _chefStateHashes[i] = Animator.StringToHash(chefStates[i]);
+    }
+
+    /// <summary>Контроллер со скином: те же состояния и переходы, но стойка и ходьба повара — от волка.</summary>
+    private AnimatorOverrideController BuildSkinController()
+    {
+        AnimationClip wolfWalk = null;
+        foreach (var clip in _baseController.animationClips)
+        {
+            if (clip.name == wolfWalkClip) wolfWalk = clip;
+        }
+
+        var controller = new AnimatorOverrideController(_baseController) { name = "SkinChefAsWolf" };
+        var emptyIdle = new AnimationClip { name = "SkinChefIdle" };
+        var overrides = new List<KeyValuePair<AnimationClip, AnimationClip>>();
+        controller.GetOverrides(overrides);
+        for (int i = 0; i < overrides.Count; i++)
+        {
+            string clipName = overrides[i].Key.name;
+            if (System.Array.IndexOf(chefIdleClips, clipName) >= 0)
+                overrides[i] = new KeyValuePair<AnimationClip, AnimationClip>(overrides[i].Key, emptyIdle);
+            else if (wolfWalk != null && System.Array.IndexOf(chefWalkClips, clipName) >= 0)
+                overrides[i] = new KeyValuePair<AnimationClip, AnimationClip>(overrides[i].Key, wolfWalk);
+        }
+        controller.ApplyOverrides(overrides);
+        return controller;
+    }
+
+    /// <summary>
+    /// Меняет контроллер аниматора, сохраняя текущее состояние и параметры: замена контроллера
+    /// сбрасывает аниматор в начальное состояние, а скин могут сменить посреди смены.
+    /// </summary>
+    private void SetAnimatorController(RuntimeAnimatorController controller)
+    {
+        if (animator == null || controller == null || animator.runtimeAnimatorController == controller) return;
+
+        bool wasActive = animator.isActiveAndEnabled && animator.runtimeAnimatorController != null;
+        int stateHash = 0;
+        float normalizedTime = 0f;
+        var parameters = new List<(AnimatorControllerParameterType type, int hash, float f, int n, bool b)>();
+        if (wasActive)
+        {
+            var info = animator.GetCurrentAnimatorStateInfo(0);
+            stateHash = info.fullPathHash;
+            normalizedTime = info.normalizedTime;
+            foreach (var p in animator.parameters)
+            {
+                if (p.type == AnimatorControllerParameterType.Trigger) continue;
+                parameters.Add((p.type, p.nameHash, animator.GetFloat(p.nameHash), animator.GetInteger(p.nameHash), animator.GetBool(p.nameHash)));
+            }
+        }
+
+        animator.runtimeAnimatorController = controller;
+        if (!wasActive) return;
+
+        foreach (var p in parameters)
+        {
+            switch (p.type)
+            {
+                case AnimatorControllerParameterType.Float: animator.SetFloat(p.hash, p.f); break;
+                case AnimatorControllerParameterType.Int: animator.SetInteger(p.hash, p.n); break;
+                case AnimatorControllerParameterType.Bool: animator.SetBool(p.hash, p.b); break;
+            }
+        }
+        animator.Play(stateHash, 0, normalizedTime);
+    }
+
+    private bool IsInChefState()
+    {
+        if (animator == null || !animator.isActiveAndEnabled) return false;
+
+        int hash = animator.GetCurrentAnimatorStateInfo(0).shortNameHash;
+        foreach (int chefHash in _chefStateHashes)
+        {
+            if (hash == chefHash) return true;
+        }
+        return false;
     }
 
     private static Transform FindChild(Transform root, string childName)
@@ -86,20 +187,25 @@ public class PlayerSkinApplier : MonoBehaviour
 #endif
         var catalog = PlayerSkinCatalog.Instance;
         _skin = catalog != null ? catalog.Find(skinId) : null;
+
+        if (_baseController == null) return;
+        if (_skin != null && _skinController == null) _skinController = BuildSkinController();
+        SetAnimatorController(_skin != null ? _skinController : _baseController);
     }
 
     private void LateUpdate()
     {
         // 1. Базовые спрайты этого кадра: если на рендерере не наша прошлая подмена — его поставил аниматор.
-        bool chefForm = false;
+        bool chefPose = false; // тело показывает спрайты повара — части стоят в позе повара
         for (int i = 0; i < parts.Length; i++)
         {
             var r = parts[i];
             if (r == null) continue;
 
             if (r.sprite != _applied[i] || _applied[i] == null) _base[i] = r.sprite;
-            if (IsChefMarker(_base[i])) chefForm = true;
+            if (IsChefMarker(_base[i])) chefPose = true;
         }
+        bool chefForm = chefPose || IsInChefState();
 
         // 2. Подмена по скину; без скина — возврат базовых спрайтов.
         for (int i = 0; i < parts.Length; i++)
@@ -113,7 +219,8 @@ public class PlayerSkinApplier : MonoBehaviour
             _applied[i] = target != null ? target : null;
         }
 
-        bool shift = _skin != null && chefForm;
+        // Сдвиги нужны только кадрам в позе повара (анимации смены формы); стойка и ходьба со скином — уже волчьи.
+        bool shift = _skin != null && chefPose;
         _chestSlot.Apply(shift ? (Vector3)_skin.ChefChestOffset : Vector3.zero);
         _leftArmSlot.Apply(shift ? (Vector3)_skin.ChefLeftArmOffset : Vector3.zero);
         _rightArmSlot.Apply(shift ? (Vector3)_skin.ChefRightArmOffset : Vector3.zero);

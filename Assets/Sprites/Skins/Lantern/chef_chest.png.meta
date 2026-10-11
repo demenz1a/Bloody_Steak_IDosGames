@@ -141,8 +141,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3b929e704393fc44bfc9234d226eed6
+      spriteID: b7f7a715a4b3fb04697947499dbdfb61
       internalID: 1665286036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chef_chest_chest_0
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 856
+        width: 741
+        height: 1003
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 480b4310d1e12d146b936a261c3e8124
+      internalID: -100580858
       vertices: []
       indices: 
       edges: []
@@ -162,6 +184,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       chef_chest_SheepCookChest_2: 1665286036
+      chef_chest_chest_0: -100580858
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

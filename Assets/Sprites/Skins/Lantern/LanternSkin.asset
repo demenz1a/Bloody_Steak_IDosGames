@@ -40,7 +40,14 @@ MonoBehaviour:
   - original: {fileID: 1423847148088217151, guid: 8ecf71272b2ee104f852d2ad578c24d7, type: 3}
     replacement: {fileID: -471114316, guid: fd2256cba690f8247a5a6eaba3721654, type: 3}
   chefSwaps:
+  - original: {fileID: 6943535168657398750, guid: cdb890e4a4258c94b8044f332f63a54e, type: 3}
+    replacement: {fileID: 233202387, guid: 0bf45464d1f53074ea05de131f230ac1, type: 3}
+  - original: {fileID: -6834524911116659543, guid: b5075705081559348937f10350ae29ef, type: 3}
+    replacement: {fileID: -100580858, guid: fc4ac33364a1f1b46a53c461510509a1, type: 3}
   - original: {fileID: -7687307636189039108, guid: 9ae20c621c8446d458832f5c04f8a4e5, type: 3}
     replacement: {fileID: -911099, guid: 7f5b7966d8694d84387c0337eb8d984c, type: 3}
   - original: {fileID: -8222877691690482927, guid: 846a2432efaded548b54ab47d0e59471, type: 3}
     replacement: {fileID: -1128332623, guid: 691c1eed63889354384a22617e74cd5f, type: 3}
+  chefChestOffset: {x: 0.57, y: -0.74}
+  chefLeftArmOffset: {x: -0.51, y: 0.65}
+  chefRightArmOffset: {x: -0.3, y: 1.04}

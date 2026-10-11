@@ -539,7 +539,21 @@ MonoBehaviour:
   chefMarkers:
   - {fileID: 1368413106863272610, guid: 08b1f33611d73a64badc6f06389ecd97, type: 3}
   - {fileID: 5800173839196415397, guid: 95b89ae28ab89e0459c31f0b4fbbc10e, type: 3}
+  chest: {fileID: 0}
+  leftArm: {fileID: 0}
+  rightArm: {fileID: 0}
+  head: {fileID: 0}
   editorPreviewSkinId: 
+  animator: {fileID: 0}
+  chefStates:
+  - SheepCookAFK
+  - SheepCookWalk
+  chefIdleClips:
+  - SheepCookAFK
+  chefWalkClips:
+  - SheepCookWalk
+  - SheepCookWalking
+  wolfWalkClip: WolfKillerWalk
 --- !u!114 &3876345624433768329
 MonoBehaviour:
   m_ObjectHideFlags: 0

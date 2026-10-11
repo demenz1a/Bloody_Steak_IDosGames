@@ -11,7 +11,9 @@ using UnityEngine;
 /// Папка скина — PNG на том же холсте 1812×2595, что и базовые спрайты (Assets/Sprites/PlayerNew),
 /// с именами по частям тела (см. Parts): head, chest, chef_head, chef_chest, arm_left, arm_right,
 /// chef_arm_left, chef_arm_right, legs, feet, pelvis, tail. Любую часть можно не класть — она
-/// останется базовой. chef_arm_* — руки только для формы повара.
+/// останется базовой. chef_arm_* — руки только для формы повара. chef_head и chef_chest режутся
+/// дважды: по прямоугольникам повара (кадры смены формы) и волка (chefSwaps: со скином форма повара
+/// играет стойку и ходьбу волка).
 ///
 /// Для каждой части импортёр:
 /// 1. копирует настройки импорта соответствующей базовой текстуры (PPU, фильтр, сжатие и т.д.);
@@ -37,12 +39,19 @@ public static class PlayerSkinImporter
         public string Key;
         public string BaseTexture;
         public bool ChefOnly;
+        /// <summary>
+        /// Вторая нарезка того же PNG — по прямоугольникам этой базовой текстуры волка, в chefSwaps.
+        /// Со скином форма повара играет анимации волка (PlayerSkinApplier), и голова/тело повара
+        /// должны вставать на место головы/тела волка.
+        /// </summary>
+        public string WolfPoseTexture;
 
-        public Part(string key, string baseTexture, bool chefOnly = false)
+        public Part(string key, string baseTexture, bool chefOnly = false, string wolfPoseTexture = null)
         {
             Key = key;
             BaseTexture = baseTexture;
             ChefOnly = chefOnly;
+            WolfPoseTexture = wolfPoseTexture;
         }
     }
 
@@ -53,8 +62,8 @@ public static class PlayerSkinImporter
     {
         new Part("head", "head 1.png"),
         new Part("chest", "chest 1.png"),
-        new Part("chef_head", "SheepCookHead.png"),
-        new Part("chef_chest", "SheepCookChest.png"),
+        new Part("chef_head", "SheepCookHead.png", wolfPoseTexture: "head 1.png"),
+        new Part("chef_chest", "SheepCookChest.png", wolfPoseTexture: "chest 1.png"),
         new Part("arm_left", "LeftHand 1.png"),
         new Part("arm_right", "righthand 1.png"),
         new Part("chef_arm_left", "LeftHand 1.png", chefOnly: true),
@@ -109,8 +118,12 @@ public static class PlayerSkinImporter
             string path = $"{folder}/{part.Key}.png";
             if (!File.Exists(path)) continue;
 
-            var swaps = ImportPart(path, $"{BaseFolder}/{part.BaseTexture}", part.Key);
-            (part.ChefOnly ? chef : always).AddRange(swaps);
+            var basePaths = new List<string> { $"{BaseFolder}/{part.BaseTexture}" };
+            if (part.WolfPoseTexture != null) basePaths.Add($"{BaseFolder}/{part.WolfPoseTexture}");
+
+            var swaps = ImportPart(path, basePaths, part.Key);
+            (part.ChefOnly ? chef : always).AddRange(swaps[0]);
+            if (swaps.Count > 1) chef.AddRange(swaps[1]); // поза волка в форме повара
         }
 
         string assetPath = $"{folder}/{Path.GetFileName(folder)}Skin.asset";
@@ -132,20 +145,15 @@ public static class PlayerSkinImporter
         return skin;
     }
 
-    private static List<PlayerSkin.SpriteSwap> ImportPart(string path, string basePath, string key)
+    /// <summary>
+    /// Режет PNG части по прямоугольникам каждой из базовых текстур (обычно одна; у головы и тела повара —
+    /// ещё и волка) и возвращает пары "базовый спрайт → спрайт скина" отдельно для каждой базовой текстуры.
+    /// </summary>
+    private static List<List<PlayerSkin.SpriteSwap>> ImportPart(string path, List<string> basePaths, string key)
     {
-        var baseImporter = (TextureImporter)AssetImporter.GetAtPath(basePath);
-        // Прямоугольники берутся из данных импорта, а не из Sprite.rect: текстуры холста 1812×2595
-        // импортируются с maxTextureSize 2048, и Sprite.rect уже уменьшен, а PNG мы читаем в полном размере.
-        var baseRects = ReadSpriteRects(baseImporter);
-        float maxArea = baseRects.Max(s => s.rect.width * s.rect.height);
-        baseRects = baseRects
-            .Where(s => s.rect.width * s.rect.height >= maxArea * MinSpriteAreaShare)
-            .OrderBy(s => s.name)
-            .ToList();
-        var baseByName = AssetDatabase.LoadAllAssetsAtPath(basePath).OfType<Sprite>().ToDictionary(s => s.name);
+        var baseImporter = (TextureImporter)AssetImporter.GetAtPath(basePaths[0]);
 
-        // 1. Те же настройки импорта, что у базовой текстуры.
+        // 1. Те же настройки импорта, что у (первой) базовой текстуры — все они на одном холсте.
         AssetDatabase.ImportAsset(path);
         var importer = (TextureImporter)AssetImporter.GetAtPath(path);
         var settings = new TextureImporterSettings();
@@ -160,25 +168,40 @@ public static class PlayerSkinImporter
         importer.SaveAndReimport();
 
         // 2. Прямоугольники базовых спрайтов, расширенные под рисунок скина, с тем же pivot на холсте.
+        // Каждая базовая текстура подгоняется отдельно: её прямоугольники делят пиксели только между собой.
         var pixels = ReadPixels(path, out int width, out int height);
-        var rects = FitRects(baseRects, pixels, width, height);
-
         var provider = GetProvider(importer);
 
         var spriteRects = new List<SpriteRect>();
-        for (int i = 0; i < baseRects.Count; i++)
+        var perBase = new List<(List<SpriteRect> rects, Dictionary<string, Sprite> byName)>();
+        foreach (var basePath in basePaths)
         {
-            var b = baseRects[i];
-            var rect = rects[i];
-            Vector2 pivotOnCanvas = b.rect.position + Vector2.Scale(EffectivePivot(b), b.rect.size);
-            spriteRects.Add(new SpriteRect
+            // Прямоугольники берутся из данных импорта, а не из Sprite.rect: текстуры холста 1812×2595
+            // импортируются с maxTextureSize 2048, и Sprite.rect уже уменьшен, а PNG мы читаем в полном размере.
+            var baseRects = ReadSpriteRects((TextureImporter)AssetImporter.GetAtPath(basePath));
+            float maxArea = baseRects.Max(s => s.rect.width * s.rect.height);
+            baseRects = baseRects
+                .Where(s => s.rect.width * s.rect.height >= maxArea * MinSpriteAreaShare)
+                .OrderBy(s => s.name)
+                .ToList();
+            var baseByName = AssetDatabase.LoadAllAssetsAtPath(basePath).OfType<Sprite>().ToDictionary(s => s.name);
+            perBase.Add((baseRects, baseByName));
+
+            var rects = FitRects(baseRects, pixels, width, height);
+            for (int i = 0; i < baseRects.Count; i++)
             {
-                name = $"{key}_{b.name}",
-                rect = rect,
-                alignment = SpriteAlignment.Custom,
-                pivot = new Vector2((pivotOnCanvas.x - rect.x) / rect.width, (pivotOnCanvas.y - rect.y) / rect.height),
-                spriteID = GUID.Generate(),
-            });
+                var b = baseRects[i];
+                var rect = rects[i];
+                Vector2 pivotOnCanvas = b.rect.position + Vector2.Scale(EffectivePivot(b), b.rect.size);
+                spriteRects.Add(new SpriteRect
+                {
+                    name = $"{key}_{b.name}",
+                    rect = rect,
+                    alignment = SpriteAlignment.Custom,
+                    pivot = new Vector2((pivotOnCanvas.x - rect.x) / rect.width, (pivotOnCanvas.y - rect.y) / rect.height),
+                    spriteID = GUID.Generate(),
+                });
+            }
         }
         provider.SetSpriteRects(spriteRects.ToArray());
         var names = provider.GetDataProvider<ISpriteNameFileIdDataProvider>();
@@ -186,15 +209,20 @@ public static class PlayerSkinImporter
         provider.Apply();
         importer.SaveAndReimport();
 
-        // 3. Пары "базовый спрайт → спрайт скина".
+        // 3. Пары "базовый спрайт → спрайт скина", по каждой базовой текстуре отдельно.
         var created = AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>().ToDictionary(s => s.name);
-        var swaps = new List<PlayerSkin.SpriteSwap>();
-        foreach (var b in baseRects)
+        var result = new List<List<PlayerSkin.SpriteSwap>>();
+        foreach (var (baseRects, baseByName) in perBase)
         {
-            if (baseByName.TryGetValue(b.name, out var original) && created.TryGetValue($"{key}_{b.name}", out var sprite))
-                swaps.Add(new PlayerSkin.SpriteSwap { original = original, replacement = sprite });
+            var swaps = new List<PlayerSkin.SpriteSwap>();
+            foreach (var b in baseRects)
+            {
+                if (baseByName.TryGetValue(b.name, out var original) && created.TryGetValue($"{key}_{b.name}", out var sprite))
+                    swaps.Add(new PlayerSkin.SpriteSwap { original = original, replacement = sprite });
+            }
+            result.Add(swaps);
         }
-        return swaps;
+        return result;
     }
 
     private static ISpriteEditorDataProvider GetProvider(TextureImporter importer)
