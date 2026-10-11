@@ -6,4 +6,5 @@ gets a new file here plus ONE line below; an existing one gets its file updated.
 instead.
 
 <!-- One line per entry: - [Title](slug.md) — one-line gist -->
+- [Phones](mobile.md) — touch joystick + interact button in Unity, shell asks for landscape and shows a rotate hint
 - [Rewards](rewards.md) — won shift pays min(60, money/10) BloodyCoin as shift_coin_* denominations, #1 of each 12-hour leaderboard cycle gets 100

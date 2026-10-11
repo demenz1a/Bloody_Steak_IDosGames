@@ -79,6 +79,9 @@ public class PlayerInteractor : MonoBehaviour
     public PlayerInventory Inventory => inventory;
     public PlayerCorpseState Corpse => corpseState;
 
+    /// <summary>Есть ли сейчас с чем взаимодействовать (кнопка на экране телефона подсвечивается).</summary>
+    public bool HasTarget => _currentTarget != null;
+
     /// <summary>Вызывается NpcCustomer.Kill() в момент убийства — проигрывает анимацию удара у игрока.</summary>
     public void PlayKillAnimation()
     {
@@ -92,7 +95,9 @@ public class PlayerInteractor : MonoBehaviour
     {
         DetectTarget();
 
-        if (Input.GetKeyDown(KeyCode.Space) && _currentTarget != null)
+        // Пробел на ПК или кнопка взаимодействия на экране телефона (MobileInput, TouchControls).
+        bool pressed = Input.GetKeyDown(KeyCode.Space) | MobileInput.ConsumeInteract();
+        if (pressed && _currentTarget != null)
         {
             _currentTarget.Interact(this);
             // Сразу пересчитываем цель — состояние объекта могло измениться

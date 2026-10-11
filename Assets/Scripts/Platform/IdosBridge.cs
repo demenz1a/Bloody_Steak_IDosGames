@@ -10,7 +10,8 @@ using UnityEngine;
 ///
 /// JS → C#: оболочка ставит игру на паузу, когда игрок уходит в лобби, через
 /// SendMessage("IdosBridge", "OnHostSuspend" / "OnHostResume") и надевает купленный скин через
-/// SendMessage("IdosBridge", "OnHostSetSkin", skinId). Для этого объект с этим именем
+/// SendMessage("IdosBridge", "OnHostSetSkin", skinId), а на телефоне включает экранное управление
+/// через SendMessage("IdosBridge", "OnHostSetMobile", "1"). Для этого объект с этим именем
 /// создаётся сам при старте и живёт между сценами.
 /// </summary>
 public class IdosBridge : MonoBehaviour
@@ -68,6 +69,9 @@ public class IdosBridge : MonoBehaviour
 
     /// <summary>Оболочка прислала надетый скин (id из IdosWeb/src/shared/skins.ts; "default" — без скина).</summary>
     private void OnHostSetSkin(string skinId) => PlayerSkinSelection.Set(skinId);
+
+    /// <summary>Оболочка сообщила, что экран сенсорный ("1") — включить экранное управление (TouchControls).</summary>
+    private void OnHostSetMobile(string value) => MobileInput.SetHostMobile(value == "1");
 
     private void OnHostResume()
     {

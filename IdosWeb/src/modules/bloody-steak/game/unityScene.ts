@@ -9,6 +9,25 @@ const BUILD_NAME = "WebGL";
 /** Aspect of the game's canvas (Player Settings → default web screen 960×600). */
 const ASPECT = 960 / 600;
 
+/** A phone or tablet: the game shows its on-screen joystick and wants a landscape screen. */
+const isTouchDevice = () =>
+  typeof window !== "undefined" && window.matchMedia?.("(pointer: coarse)").matches === true;
+
+/** Portrait phone → "turn your phone" hint over the game (CSS only, follows rotation by itself). */
+const ROTATE_CSS = `
+.bs-rotate{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;
+  gap:16px;background:#000;color:#fff;font:600 18px/1.4 system-ui,sans-serif;text-align:center;padding:24px;z-index:2}
+.bs-rotate__icon{width:64px;height:64px;border:4px solid #c8102e;border-radius:10px;animation:bs-rotate 1.6s ease-in-out infinite}
+@keyframes bs-rotate{0%,20%{transform:rotate(0)}60%,100%{transform:rotate(-90deg)}}
+@media (orientation:portrait) and (pointer:coarse){.bs-rotate{display:flex}}
+`;
+
+/** Ask the browser for landscape; works only where allowed (Android fullscreen), silently ignored elsewhere. */
+function lockLandscape() {
+  const orientation = screen.orientation as ScreenOrientation & { lock?: (o: string) => Promise<void> };
+  orientation?.lock?.("landscape").catch(() => {});
+}
+
 interface UnityInstance {
   SendMessage(objectName: string, method: string, value?: string | number): void;
   Quit(): Promise<void>;
@@ -59,6 +78,8 @@ export function createUnityScene(
   const send = (method: "OnHostSuspend" | "OnHostResume") =>
     instance?.SendMessage("IdosBridge", method);
   const setSkin = (skinId: string) => instance?.SendMessage("IdosBridge", "OnHostSetSkin", skinId);
+  // IdosBridge.OnHostSetMobile → TouchControls (joystick + interact button) on a touch screen.
+  const sendMobile = () => instance?.SendMessage("IdosBridge", "OnHostSetMobile", isTouchDevice() ? "1" : "0");
 
   return {
     surface: "fullbleed-canvas",
@@ -72,9 +93,18 @@ export function createUnityScene(
       canvas.id = "unity-canvas";
       canvas.tabIndex = -1;
       // The game keeps its 16:10 picture; the rest of the screen is black bars.
-      canvas.style.cssText = `display:block;outline:none;width:min(100cqw, calc(100cqh * ${ASPECT}));aspect-ratio:${ASPECT};`;
+      // touch-action:none — the browser must not scroll or zoom while a finger drives the joystick.
+      canvas.style.cssText = `display:block;outline:none;width:min(100cqw, calc(100cqh * ${ASPECT}));aspect-ratio:${ASPECT};touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;`;
+      canvas.addEventListener("contextmenu", (e) => e.preventDefault());
       wrap.style.containerType = "size";
       wrap.appendChild(canvas);
+
+      const style = document.createElement("style");
+      style.textContent = ROTATE_CSS;
+      const rotate = document.createElement("div");
+      rotate.className = "bs-rotate";
+      rotate.innerHTML = `<div class="bs-rotate__icon"></div><div>Поверните телефон горизонтально<br><span style="opacity:.6;font-size:14px">Rotate your phone to landscape</span></div>`;
+      wrap.append(style, rotate);
       host.appendChild(wrap);
       // Keyboard input in an iframe needs focus on the canvas.
       canvas.addEventListener("pointerdown", () => canvas?.focus());
@@ -95,11 +125,14 @@ export function createUnityScene(
               productVersion: "1.0",
               // Lets capture() read the last frame for the platform's "Shot" button.
               webglContextAttributes: { preserveDrawingBuffer: true },
+              // Phones report 3–4× pixel ratios; 2 is sharp enough and keeps the frame rate up.
+              devicePixelRatio: Math.min(window.devicePixelRatio || 1, isTouchDevice() ? 2 : 3),
             },
             (p) => (state.progress = p),
           );
           state.loaded = true;
           setSkin(currentSkin());
+          sendMobile();
           canvas!.focus();
           if (!state.active) send("OnHostSuspend");
         } catch (e) {
@@ -116,6 +149,8 @@ export function createUnityScene(
     activate() {
       state.active = true;
       setSkin(currentSkin());
+      sendMobile();
+      if (isTouchDevice()) lockLandscape();
       send("OnHostResume");
       canvas?.focus();
     },

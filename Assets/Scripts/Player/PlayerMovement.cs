@@ -88,7 +88,10 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal"); // A/D или стрелки влево/вправо
         float y = Input.GetAxisRaw("Vertical");   // W/S или стрелки вверх/вниз
 
-        _moveInput = new Vector2(x, y).normalized;
+        var keyboard = new Vector2(x, y);
+        // Клавиатура важнее; без неё — джойстик на экране телефона (MobileInput, TouchControls),
+        // тоже на полной скорости в его направлении.
+        _moveInput = keyboard.sqrMagnitude > 0.01f ? keyboard.normalized : MobileInput.Move.normalized;
 
         if (_moveInput.sqrMagnitude > 0.01f)
         {
