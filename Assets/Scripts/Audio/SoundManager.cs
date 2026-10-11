@@ -21,7 +21,7 @@ public enum SoundId
     FoodBurnt,       // еда сгорела (CookingStation)
     Spotted,         // игрока заметили (PanicManager.OnPanicStarted)
     // Новые звуки — только в конец: id хранится в сцене числом.
-    DoorBell,        // клиент вошёл (NpcSpawner)
+    DoorBell,        // клиент вошёл в дверь (NpcCustomer у NpcSpawner.doorPoint)
     ToiletFlush,     // клиент вышел из туалета (NpcCustomer)
     NpcDeathScream,  // предсмертный крик барана (NpcCustomer.Kill)
     LightSwitch      // щелчок рубильника (LightSwitch)

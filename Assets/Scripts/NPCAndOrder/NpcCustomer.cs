@@ -99,6 +99,9 @@ public class NpcCustomer : MonoBehaviour, IInteractable
     private float _baseAgentAcceleration;
     private float _deathTime;
     private PlayerMovement _carriedByMovement;
+    private bool _doorBellPending;
+    private Vector2 _doorBellPoint;
+    private float _doorBellRadius;
 
     /// <summary>
     /// Игрок убил клиента: (жертва, была ли она в панике). Статическое — клиенты спаунятся
@@ -175,12 +178,29 @@ public class NpcCustomer : MonoBehaviour, IInteractable
         toiletDuration = toiletSeconds;
     }
 
+    /// <summary>
+    /// Клиент спаунится снаружи здания: колокольчик над дверью прозвенит, когда он подойдёт
+    /// к точке входа ближе чем на radius (вызывает NpcSpawner сразу после Initialize).
+    /// </summary>
+    public void RingDoorBellAt(Vector3 doorPosition, float radius)
+    {
+        _doorBellPending = true;
+        _doorBellPoint = doorPosition;
+        _doorBellRadius = radius;
+    }
+
     private void Update()
     {
         if (_state == NpcState.Dead)
         {
             UpdateCorpseFacing(); // лежит на полу или его тащат — единственное, что ещё может меняться, это разворот
             return;
+        }
+
+        if (_doorBellPending && ((Vector2)transform.position - _doorBellPoint).sqrMagnitude <= _doorBellRadius * _doorBellRadius)
+        {
+            _doorBellPending = false;
+            SoundManager.Play(SoundId.DoorBell);
         }
 
         UpdateMovementAnimation();

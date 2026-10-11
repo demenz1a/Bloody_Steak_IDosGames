@@ -13,6 +13,13 @@ public class NpcSpawner : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Transform exitPoint;
 
+    [Header("Door bell")]
+    [Tooltip("Точка у входной двери: колокольчик звенит, когда клиент до неё доходит (клиенты спаунятся снаружи). " +
+             "Пусто — звенит сразу при спауне.")]
+    [SerializeField] private Transform doorPoint;
+    [Tooltip("На каком расстоянии от doorPoint клиент считается вошедшим.")]
+    [SerializeField] private float doorBellRadius = 1f;
+
     [SerializeField] private PointGroup orderPoints;
     [SerializeField] private PointGroup tablePoints;
     [SerializeField] private PointGroup toiletPoints;
@@ -51,7 +58,9 @@ public class NpcSpawner : MonoBehaviour
         if (!orderPoints.TryReserveFirstFree(out var reservedOrderPoint)) return;
 
         var npc = Instantiate(npcPrefab, spawnPoint.position, Quaternion.identity);
-        SoundManager.Play(SoundId.DoorBell); // колокольчик над дверью — клиент вошёл
+        // Колокольчик над дверью — когда клиент дойдёт до входа, а не в момент спауна снаружи.
+        if (doorPoint != null) npc.RingDoorBellAt(doorPoint.position, doorBellRadius);
+        else SoundManager.Play(SoundId.DoorBell);
         var dishes = RandomDishes();
 
         npc.Initialize(orderManager, tablePoints, toiletPoints, exitPoint, reservedOrderPoint, dishes);
