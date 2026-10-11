@@ -27,17 +27,26 @@ public class PlayerSkin : ScriptableObject
     [SerializeField] private string displayName;
     [SerializeField] private SpriteSwap[] swaps = Array.Empty<SpriteSwap>();
     [SerializeField] private SpriteSwap[] chefSwaps = Array.Empty<SpriteSwap>();
-    [Tooltip("Сдвиг тела (Chest вместе с руками) в форме повара, в локальных единицах. Тело повара в скинах " +
-             "нарисовано на месте обычного тела, а базовое тело повара — ниже (~126 px холста ≈ 1 ед.: текстуры " +
-             "ужаты до 2048), поэтому без сдвига скин в форме повара сидит слишком высоко.")]
-    [SerializeField] private Vector2 chefBodyOffset = new Vector2(0f, -1f);
+    // Тело и руки повара в скинах нарисованы на месте обычных (как у волка), а анимации повара ставят
+    // Chest и руки под базовое тело повара: у него другой прямоугольник спрайта (pivot ниже на ~250 px
+    // холста), а руки подняты относительно тела. Сдвиги ниже (локальные единицы, текстуры ужаты до 2048,
+    // т.е. 1 ед. ≈ 127 px холста) возвращают частям скина взаимное расположение формы волка в позе покоя.
+    [Header("Форма повара: сдвиги поверх анимации")]
+    [Tooltip("Сдвиг Chest (вместе с руками).")]
+    [SerializeField] private Vector2 chefChestOffset = new Vector2(0.57f, -0.74f);
+    [Tooltip("Дополнительный сдвиг левой руки относительно Chest.")]
+    [SerializeField] private Vector2 chefLeftArmOffset = new Vector2(-0.51f, 0.65f);
+    [Tooltip("Дополнительный сдвиг правой руки относительно Chest.")]
+    [SerializeField] private Vector2 chefRightArmOffset = new Vector2(-0.30f, 1.04f);
 
     private Dictionary<Sprite, Sprite> _map;
     private Dictionary<Sprite, Sprite> _chefMap;
 
     public string SkinId => skinId;
     public string DisplayName => displayName;
-    public Vector2 ChefBodyOffset => chefBodyOffset;
+    public Vector2 ChefChestOffset => chefChestOffset;
+    public Vector2 ChefLeftArmOffset => chefLeftArmOffset;
+    public Vector2 ChefRightArmOffset => chefRightArmOffset;
 
     /// <summary>Чем заменить базовый спрайт; null — оставить как есть.</summary>
     public Sprite Resolve(Sprite original, bool chefForm)

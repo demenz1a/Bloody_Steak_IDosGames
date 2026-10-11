@@ -19,8 +19,12 @@ public class PlayerSkinApplier : MonoBehaviour
     [SerializeField] private SpriteRenderer[] parts;
     [Tooltip("Базовые спрайты, по которым видно, что игрок сейчас в форме повара (голова и тело повара).")]
     [SerializeField] private Sprite[] chefMarkers;
-    [Tooltip("Тело (родитель рук), которое скин сдвигает в форме повара (PlayerSkin.ChefBodyOffset). Пусто — ребёнок с именем Chest.")]
+    [Tooltip("Тело (родитель рук), которое скин сдвигает в форме повара (PlayerSkin.ChefChestOffset). Пусто — ребёнок с именем Chest.")]
     [SerializeField] private Transform chest;
+    [Tooltip("Левая рука (PlayerSkin.ChefLeftArmOffset). Пусто — ребёнок с именем LeftHand.")]
+    [SerializeField] private Transform leftArm;
+    [Tooltip("Правая рука (PlayerSkin.ChefRightArmOffset). Пусто — ребёнок с именем RightHand.")]
+    [SerializeField] private Transform rightArm;
     [Tooltip("Голова: со скином она рисуется поверх всех частей тела. Пусто — ребёнок с именем Head.")]
     [SerializeField] private SpriteRenderer head;
     [Tooltip("Только для проверки в редакторе: надеть этот скин вместо выбранного в оболочке.")]
@@ -30,10 +34,11 @@ public class PlayerSkinApplier : MonoBehaviour
     private Sprite[] _applied;
     private PlayerSkin _skin;
 
-    // Сдвиг тела и порядок головы ставятся поверх аниматора тем же способом, что и спрайты:
+    // Сдвиги частей и порядок головы ставятся поверх аниматора тем же способом, что и спрайты:
     // запоминаем, что записали сами, чтобы отличить это от нового значения аниматора.
-    private Vector3 _chestWritten;
-    private Vector3 _chestAppliedOffset;
+    private readonly OffsetSlot _chestSlot = new OffsetSlot();
+    private readonly OffsetSlot _leftArmSlot = new OffsetSlot();
+    private readonly OffsetSlot _rightArmSlot = new OffsetSlot();
     private int _headWrittenOrder;
     private int _headBaseOrder;
     private bool _headOverridden;
@@ -45,6 +50,11 @@ public class PlayerSkinApplier : MonoBehaviour
         _applied = new Sprite[parts.Length];
 
         if (chest == null) chest = FindChild(transform, "Chest");
+        if (leftArm == null) leftArm = FindChild(transform, "LeftHand");
+        if (rightArm == null) rightArm = FindChild(transform, "RightHand");
+        _chestSlot.target = chest;
+        _leftArmSlot.target = leftArm;
+        _rightArmSlot.target = rightArm;
         if (head == null)
         {
             var headTransform = FindChild(transform, "Head");
@@ -103,26 +113,35 @@ public class PlayerSkinApplier : MonoBehaviour
             _applied[i] = target != null ? target : null;
         }
 
-        ApplyChestOffset(_skin != null && chefForm ? (Vector3)_skin.ChefBodyOffset : Vector3.zero);
+        bool shift = _skin != null && chefForm;
+        _chestSlot.Apply(shift ? (Vector3)_skin.ChefChestOffset : Vector3.zero);
+        _leftArmSlot.Apply(shift ? (Vector3)_skin.ChefLeftArmOffset : Vector3.zero);
+        _rightArmSlot.Apply(shift ? (Vector3)_skin.ChefRightArmOffset : Vector3.zero);
         ApplyHeadOnTop(_skin != null);
     }
 
     /// <summary>
-    /// Сдвигает тело вместе с руками поверх позиции, выставленной аниматором. Если аниматор в этом
-    /// кадре позицию не писал (там всё ещё наша прошлая запись) — сначала снимаем прошлый сдвиг,
-    /// иначе он копился бы каждый кадр.
+    /// Сдвиг одной части поверх позиции, выставленной аниматором. Если аниматор в этом кадре позицию
+    /// не писал (там всё ещё наша прошлая запись) — сначала снимается прошлый сдвиг, иначе он копился бы каждый кадр.
     /// </summary>
-    private void ApplyChestOffset(Vector3 offset)
+    private class OffsetSlot
     {
-        if (chest == null) return;
+        public Transform target;
+        private Vector3 _written;
+        private Vector3 _applied;
 
-        var current = chest.localPosition;
-        var basePosition = current == _chestWritten ? current - _chestAppliedOffset : current;
-        if (offset == Vector3.zero && _chestAppliedOffset == Vector3.zero) return;
+        public void Apply(Vector3 offset)
+        {
+            if (target == null) return;
+            if (offset == Vector3.zero && _applied == Vector3.zero) return;
 
-        chest.localPosition = basePosition + offset;
-        _chestWritten = chest.localPosition;
-        _chestAppliedOffset = offset;
+            var current = target.localPosition;
+            var basePosition = current == _written ? current - _applied : current;
+
+            target.localPosition = basePosition + offset;
+            _written = target.localPosition;
+            _applied = offset;
+        }
     }
 
     /// <summary>Со скином голова рисуется поверх всех частей тела; без скина — возвращается порядок аниматора/префаба.</summary>
