@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1360e94b1a081e4b8f652a5d9f9ffa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 4
+  moveSpeed: 6
   animator: {fileID: 3837901167150759714}
   walkingParam: Walking
   visualRoot: {fileID: 3706840318898129096}
@@ -495,11 +495,20 @@ MonoBehaviour:
   corpseState: {fileID: 8337979737162224366}
   animator: {fileID: 3837901167150759714}
   killTrigger: Kill
-  interactionRadius: 2.02
-  interactionDistance: 1.73
+  interactionRadius: 1.87
+  interactionDistance: 0.64
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
+  interactionCenter: {fileID: 4369385214278066349}
+  bodyPartNames:
+  - Head
+  - Chest
+  - Pelvis
+  - LeftLeg
+  - RightLeg
+  - LeftFeet
+  - RightFeet
 --- !u!114 &3532283437494771173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,7 +1047,7 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 7cb2c72521c8ec84f9b2dff72642dbe3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -1313,7 +1322,7 @@ SpriteRenderer:
   m_SortingOrder: 4
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: b7ea52eb64337194e8584cc537882733, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0

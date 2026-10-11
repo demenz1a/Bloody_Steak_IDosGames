@@ -40,6 +40,21 @@ public class Product : CarriableItem
         UpdateSprite();
     }
 
+    /// <summary>
+    /// Спрайт стадии без живого экземпляра (работает и на префабе, до Awake) —
+    /// для полупрозрачных проекций блюд над станциями.
+    /// </summary>
+    public Sprite GetSprite(ProductType type)
+    {
+        if (visuals == null) return null;
+
+        foreach (var v in visuals)
+        {
+            if (v.type == type) return v.sprite;
+        }
+        return null;
+    }
+
     public void SetType(ProductType newType)
     {
         Type = newType;

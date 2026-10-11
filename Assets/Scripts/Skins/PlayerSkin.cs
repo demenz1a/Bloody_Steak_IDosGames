@@ -27,12 +27,17 @@ public class PlayerSkin : ScriptableObject
     [SerializeField] private string displayName;
     [SerializeField] private SpriteSwap[] swaps = Array.Empty<SpriteSwap>();
     [SerializeField] private SpriteSwap[] chefSwaps = Array.Empty<SpriteSwap>();
+    [Tooltip("Сдвиг тела (Chest вместе с руками) в форме повара, в локальных единицах. Тело повара в скинах " +
+             "нарисовано на месте обычного тела, а базовое тело повара — ниже (~126 px холста ≈ 1 ед.: текстуры " +
+             "ужаты до 2048), поэтому без сдвига скин в форме повара сидит слишком высоко.")]
+    [SerializeField] private Vector2 chefBodyOffset = new Vector2(0f, -1f);
 
     private Dictionary<Sprite, Sprite> _map;
     private Dictionary<Sprite, Sprite> _chefMap;
 
     public string SkinId => skinId;
     public string DisplayName => displayName;
+    public Vector2 ChefBodyOffset => chefBodyOffset;
 
     /// <summary>Чем заменить базовый спрайт; null — оставить как есть.</summary>
     public Sprite Resolve(Sprite original, bool chefForm)

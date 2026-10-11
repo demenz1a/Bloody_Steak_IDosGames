@@ -54,6 +54,11 @@ public class NpcCustomer : MonoBehaviour, IInteractable
     [SerializeField] private string walkingParam = "Walking";
     [SerializeField] private string deadTrigger = "Dead";
     [SerializeField] private string panicTrigger = "Panic";
+    [Tooltip("Имя состояния смерти в аниматоре: труп можно подобрать, только когда эта анимация доиграла.")]
+    [SerializeField] private string deadStateName = "NPCMaleDead";
+    [Tooltip("Страховка: через сколько секунд после убийства труп можно подобрать в любом случае " +
+             "(если состояние в аниматоре переименуют, труп не останется неподбираемым навсегда).")]
+    [SerializeField] private float corpsePickupMaxDelay = 3f;
     [Tooltip("Транформ, который зеркалим по X в зависимости от направления движения. " +
              "Если персонаж составной (много частей тела) — это их общий родительский контейнер.")]
     [SerializeField] private Transform visualRoot;
@@ -92,7 +97,7 @@ public class NpcCustomer : MonoBehaviour, IInteractable
     private float _baseVisualScaleX;
     private float _baseAgentSpeed;
     private float _baseAgentAcceleration;
-    private bool _raisesAlarmOnEscape;
+    private float _deathTime;
     private PlayerMovement _carriedByMovement;
 
     /// <summary>
@@ -488,6 +493,7 @@ public class NpcCustomer : MonoBehaviour, IInteractable
         }
 
         _state = NpcState.Dead;
+        _deathTime = Time.time;
 
         // Убитый беглец больше не паникует: иначе шкала паники и музыка паники остались бы навсегда.
         if (wasPanicking) PanicManager.Instance.UnregisterPanic(this);
@@ -527,18 +533,17 @@ public class NpcCustomer : MonoBehaviour, IInteractable
         _state = NpcState.Panicking;
         _agent.SetDestination(_exitPoint.position);
 
-        // Свидетель убийства бежит поднимать тревогу: если добежит до выхода — игрок проиграл
-        // (см. Update, NpcState.Panicking). Догнать и убить его по дороге — единственный шанс.
-        _raisesAlarmOnEscape = severity == PanicSeverity.WitnessedKill;
-
         PanicManager.Instance.RegisterPanic(this, severity);
     }
 
-    /// <summary>Паникующий клиент дошёл до выхода и покинул ресторан.</summary>
+    /// <summary>
+    /// Паникующий клиент дошёл до выхода и поднял тревогу — игрок проиграл. Неважно, видел ли он
+    /// убийство или только труп в руках игрока: догнать и убить его по дороге — единственный шанс.
+    /// </summary>
     private void EscapeRestaurant()
     {
         PanicManager.Instance.UnregisterPanic(this);
-        if (_raisesAlarmOnEscape) GameOverManager.Instance?.TriggerGameOver(GameOverReason.WitnessEscaped);
+        GameOverManager.Instance?.TriggerGameOver(GameOverReason.WitnessEscaped);
         Destroy(gameObject);
     }
 
@@ -547,8 +552,19 @@ public class NpcCustomer : MonoBehaviour, IInteractable
     private bool CanBePickedUp(PlayerInteractor player)
     {
         return _state == NpcState.Dead
+            && IsDeathAnimationFinished()
             && !player.Corpse.IsCarrying
             && !player.Inventory.HasItem;
+    }
+
+    /// <summary>Труп подбирается только после того, как анимация смерти доиграла до конца.</summary>
+    private bool IsDeathAnimationFinished()
+    {
+        if (animator == null || Time.time - _deathTime >= corpsePickupMaxDelay) return true;
+        if (animator.IsInTransition(0)) return false;
+
+        var info = animator.GetCurrentAnimatorStateInfo(0);
+        return info.IsName(deadStateName) && info.normalizedTime >= 1f;
     }
 
     private void PickUp(PlayerInteractor player)

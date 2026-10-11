@@ -36,7 +36,15 @@ public class CookingStation : MonoBehaviour, IInteractable
     [SerializeField] private float shakeAmplitude = 0.03f;
     [SerializeField] private float shakeSpeed = 25f;
 
+    [Header("Food preview")]
+    [Tooltip("Префаб продукта, из которого берётся спрайт блюда для проекции. Пусто — префаб мяса из MeatTable в сцене.")]
+    [SerializeField] private Product previewSource;
+    [Tooltip("Прозрачность проекции блюда над пустой станцией.")]
+    [Range(0f, 1f)]
+    [SerializeField] private float previewAlpha = 0.35f;
+
     private Vector3 _originalPosition;
+    private SpriteRenderer _preview;
 
     private StationPhase _phase = StationPhase.Empty;
     private float _elapsed;
@@ -47,6 +55,61 @@ public class CookingStation : MonoBehaviour, IInteractable
     private void Awake()
     {
         _originalPosition = transform.localPosition;
+    }
+
+    private void Start()
+    {
+        CreatePreview();
+        UpdatePreview();
+    }
+
+    /// <summary>
+    /// Полупрозрачная "проекция" блюда, которое готовит станция, — в той же точке и того же
+    /// размера, что и продукт на станции. Видна, только пока станция пустая.
+    /// </summary>
+    private void CreatePreview()
+    {
+        if (holdPoint == null || stages == null || stages.Length == 0) return;
+
+        var source = previewSource;
+        if (source == null)
+        {
+            var meatTable = FindAnyObjectByType<MeatTable>();
+            if (meatTable != null) source = meatTable.RawMeatPrefab;
+        }
+        if (source == null) return;
+
+        var sprite = source.GetSprite(PreviewType());
+        var sourceRenderer = source.GetComponent<SpriteRenderer>();
+        if (sprite == null || sourceRenderer == null) return;
+
+        var go = new GameObject("FoodPreview");
+        go.transform.SetParent(holdPoint.transform, worldPositionStays: false);
+        go.transform.localPosition = Vector3.zero;
+        go.transform.localScale = source.transform.localScale; // HoldPoint.Place оставляет продукту его собственный масштаб
+
+        _preview = go.AddComponent<SpriteRenderer>();
+        _preview.sprite = sprite;
+        _preview.sortingLayerID = sourceRenderer.sortingLayerID;
+        _preview.sortingOrder = sourceRenderer.sortingOrder;
+        var color = sourceRenderer.color;
+        color.a *= previewAlpha;
+        _preview.color = color;
+    }
+
+    /// <summary>Что показывать: первая стадия, которую можно подать (готовое блюдо), иначе последняя.</summary>
+    private ProductType PreviewType()
+    {
+        foreach (var stage in stages)
+        {
+            if (stage.isServable) return stage.resultType;
+        }
+        return stages[stages.Length - 1].resultType;
+    }
+
+    private void UpdatePreview()
+    {
+        if (_preview != null) _preview.enabled = _phase == StationPhase.Empty;
     }
 
     public bool CanInteract(PlayerInteractor player)
@@ -96,6 +159,7 @@ public class CookingStation : MonoBehaviour, IInteractable
         _phase = StationPhase.Cooking;
         _elapsed = 0f;
         _currentStageIndex = -1;
+        UpdatePreview();
 
         timerUI?.SetVisible(true);
 
@@ -112,6 +176,7 @@ public class CookingStation : MonoBehaviour, IInteractable
         _phase = StationPhase.Empty;
         _elapsed = 0f;
         _currentStageIndex = -1;
+        UpdatePreview();
 
         timerUI?.SetVisible(false);
 

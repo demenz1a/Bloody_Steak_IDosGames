@@ -64,7 +64,7 @@ export const bloodySteakModule: Module = defineModule({
       ctx.notifications.toast({
         level: "reward",
         title: t("victoryReward"),
-        message: "+20 BloodyCoin",
+        message: "+300 BloodyCoin", // ТЕСТ: в тайтле временно 300 (обычно 20)
         icon: "gift",
         key: "victory-reward",
       });

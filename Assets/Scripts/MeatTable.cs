@@ -15,6 +15,9 @@ public class MeatTable : MonoBehaviour, IInteractable
     [SerializeField] private Product rawMeatPrefab;
     [SerializeField] private int startingAmount = 4;
 
+    /// <summary>Префаб сырого мяса — из него станции берут спрайты для проекций блюд.</summary>
+    public Product RawMeatPrefab => rawMeatPrefab;
+
     public int Max => slots.Length;
     public int Current { get; private set; }
 
